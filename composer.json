@@ -1,0 +1,35 @@
+{
+    "name": "ubc-library/metadata-application-profile",
+    "description": "UBC Libraries - Metadata Application Profile",
+    "homepage": "https://github.com/ubc-library/metadata-application-profile",
+    "authors": [
+        {
+            "name": "Stefan Khan-Kernahan",
+            "email": "stefan.khan-kernahan@ubc.ca",
+            "role": "Architect/Backend Developer"
+        },
+        {
+            "name": "Sean McNamara",
+            "email": "sean.mcnamara@ubc.ca",
+            "role": "Backend Developer"
+        }
+    ],
+    "support": {
+        "email": "stefan.khan-kernahan@ubc.ca"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/open-library/metadata-resources.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "open-library/metadata-resources": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "UBC\\LSIT\\Resources\\Metadata\\": "src/UBC/LSIT/Resources/Metadata/"
+        }
+    }
+}
