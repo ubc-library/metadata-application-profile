@@ -7,7 +7,7 @@
      */
     
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
-    
-    class SourceResource {
+
+    trait SourceResource {
         
     }

@@ -9,7 +9,9 @@
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas;
+    use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
+
 
     /**
      * Class ApplicationProfile
@@ -21,7 +23,9 @@
      * kept in this file, especially as they may be system generated if not
      * found in the source resource
      */
-    class ApplicationProfile extends BaseProfile {
+    class ApplicationProfile {
+
+        use Profiles\DPLA\SourceResource;
 
         /**
          * @var AbstractProperty

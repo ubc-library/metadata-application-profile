@@ -10,15 +10,9 @@
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
-    use OpenLibrary\Metadata\Profiles\DPLA;
 
-    class SourceResource
+    class BaseProfile
     {
-        use DPLA\SourceResource;
-
-
-
-
 
         /**
          * @var AbstractProperty
