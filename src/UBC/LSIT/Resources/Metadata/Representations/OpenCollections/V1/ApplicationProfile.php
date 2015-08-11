@@ -6,7 +6,7 @@
      * Time: 1:41 PM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\V1;
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
@@ -14,8 +14,6 @@
 
     /**
      * Class ApplicationProfile
-     *
-     * @package UBC\LSIT\Resources\Metadata\Representations\OpenCollections
      *
      * Whilst most of the properties should be in their contextual profiles,
      * some, such as the Sort Date, which are needed by the Application, are
@@ -41,17 +39,17 @@
             }
             $this->SortDate->setAttribute('lang', 'en');
         }
-        
+
 
         public function generateSchemaDefinitionAsJSON () {
             return $this->getAll();
         }
 
-        /*
+
         public function setAccessIdentifier ($value, $label = false) {
             $this->AccessIdentifier = new Schemas\DCTerms\Properties\Identifier($value, $label);
         }
-        */
+
 
         private function getAll ($verbose = false) {
 
