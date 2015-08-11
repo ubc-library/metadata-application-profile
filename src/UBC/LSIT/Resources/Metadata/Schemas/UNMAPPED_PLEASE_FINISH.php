@@ -8,6 +8,7 @@
 
     namespace UBC\LSIT\Resources\Metadata\Schemas;
 
+    use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
     class UBC {
@@ -50,16 +51,74 @@
         /**
          * @var AbstractProperty
          */
-        private $Source;
-
-        /**
-         * @var AbstractProperty
-         */
         private $Time;
 
         /**
          * @var AbstractProperty
          */
         private $Translation;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Annotation;
+
+        /**
+         * @var Schemas\DCTerms\Properties\Title
+         */
+        private $CollectionTitle;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $CollectionDescription;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $FileFormat;
+
+        /**
+         * @var AbstractProperty
+         *
+         * This is the DOI
+         */
+        private $IsShownAt;
+
+        /**
+         * @var Schemas\DCTerms\Properties\License
+         */
+        private $License;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Provider;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Rights;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $AggregatedSourceRepository;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $DigitalResourceOriginalRecord;
+
+
+        /**
+         * @var AbstractProperty
+         */
+        private $HasView;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $ResourceAnnotated;
 
     }

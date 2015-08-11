@@ -45,6 +45,11 @@
         /**
          * @var AbstractProperty
          */
+        private $Series;
+
+        /**
+         * @var AbstractProperty
+         */
         private $URI;
 
     }

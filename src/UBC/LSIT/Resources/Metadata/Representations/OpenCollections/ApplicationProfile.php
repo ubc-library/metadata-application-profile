@@ -30,27 +30,6 @@
         /**
          * @var AbstractProperty
          */
-        private $AggregatedSourceRepository;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $DigitalResourceOriginalRecord;
-
-
-        /**
-         * @var AbstractProperty
-         */
-        private $HasView;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $ResourceAnnotated;
-
-        /**
-         * @var AbstractProperty
-         */
         private $SortDate;
 
         /**
