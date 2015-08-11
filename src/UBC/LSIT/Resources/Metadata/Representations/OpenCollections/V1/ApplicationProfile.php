@@ -27,9 +27,9 @@
         use OpenCollections\ArtifactDescription;
         use OpenCollections\BibliographicDescription;
         use OpenCollections\DigitalPreservation;
-        use OpenCollections\FieldNotesDescription;
-        use OpenCollections\GeographicDescription;
-        use OpenCollections\MediaDescription;
+        //use OpenCollections\FieldNotesDescription;
+        //use OpenCollections\GeographicDescription;
+        //use OpenCollections\MediaDescription;
         use OpenCollections\PublicationDescription;
         use OpenCollections\SourceResource;
         use OpenCollections\ThesisDescription;
@@ -50,16 +50,9 @@
             $this->SortDate->setAttribute('lang', 'en');
         }
 
-
         public function generateSchemaDefinitionAsJSON () {
             return $this->getAll();
         }
-
-
-        public function setAccessIdentifier ($value, $label = false) {
-            $this->AccessIdentifier = new Schemas\DCTerms\Properties\Identifier($value, $label);
-        }
-
 
         private function getAll ($verbose = false) {
 
