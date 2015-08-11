@@ -11,6 +11,7 @@
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
+    use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
 
     /**
      * Class ApplicationProfile
@@ -23,6 +24,15 @@
     class ApplicationProfile {
 
         use Profiles\DPLA\SourceResource;
+        use OpenCollections\ArtifactDescription;
+        use OpenCollections\BibliographicDescription;
+        use OpenCollections\DigitalPreservation;
+        use OpenCollections\FieldNotesDescription;
+        use OpenCollections\GeographicDescription;
+        use OpenCollections\MediaDescription;
+        use OpenCollections\PublicationDescription;
+        use OpenCollections\SourceResource;
+        use OpenCollections\ThesisDescription;
 
         /**
          * @var AbstractProperty

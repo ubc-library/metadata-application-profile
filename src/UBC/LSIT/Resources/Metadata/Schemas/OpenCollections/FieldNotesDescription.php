@@ -6,7 +6,7 @@
      * Time: 18:40
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments;
+    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
@@ -16,7 +16,7 @@
      *
      * @package UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments
      */
-    class FieldNotesDescription {
+    trait FieldNotesDescription {
 
         /**
          * @var AbstractProperty

@@ -10,7 +10,7 @@
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
-    class MediaDescription {
+    trait MediaDescription {
 
         /**
          * @var AbstractProperty
