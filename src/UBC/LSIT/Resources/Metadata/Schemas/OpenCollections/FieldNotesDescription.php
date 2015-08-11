@@ -16,7 +16,7 @@
      *
      * @package UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments
      */
-    class FieldNotes {
+    class FieldNotesDescription {
 
         /**
          * @var AbstractProperty
@@ -66,21 +66,6 @@
         /**
          * @var AbstractProperty
          */
-        private $Latitude;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $Locality;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $Longitude;
-
-        /**
-         * @var AbstractProperty
-         */
         private $Map;
 
         /**
@@ -116,11 +101,6 @@
         /**
          * @var AbstractProperty
          */
-        private $Time;
-
-        /**
-         * @var AbstractProperty
-         */
         private $Vegetation;
 
         /**
@@ -132,6 +112,7 @@
          * @var AbstractProperty
          */
         private $Watershed;
+
 
         public function setCatalogueNumber ($value, $label = false) {
 

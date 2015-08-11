@@ -1,52 +1,36 @@
 <?php
     /**
      * Created by PhpStorm.
-     * User: hajime
-     * Date: 09 Aug 15
-     * Time: 19:00
+     * User: skhanker
+     * Date: 15/07/2015
+     * Time: 10:32 AM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments;
+    namespace UBC\LSIT\Resources\Metadata\Schemas;
 
-    use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    /**
-     * Class CONTENTdm
-     *
-     * @package UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments
-     */
-    trait CONTENTdm {
-
-
+    class UBC {
 
         /**
          * @var AbstractProperty
          */
         private $CatalogueRecord;
 
-
-
-
-
         /**
          * @var AbstractProperty
          */
         private $DigitalIdentifier;
 
-
-
-
-
-
-
+        /**
+         * @var AbstractProperty
+         */
+        private $Locality;
 
         /**
          * @var AbstractProperty
          */
         private $RBSCLocation;
-
-
 
         /**
          * @var AbstractProperty
@@ -56,8 +40,11 @@
         /**
          * @var AbstractProperty
          */
+        private $Time;
+
+        /**
+         * @var AbstractProperty
+         */
         private $Translation;
-
-
 
     }
