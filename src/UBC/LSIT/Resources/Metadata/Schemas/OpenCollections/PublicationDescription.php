@@ -15,41 +15,105 @@
         /**
          * @var AbstractProperty
          */
-        private $Citation;
+        protected $Citation;
 
         /**
          * @var AbstractProperty
          */
-        private $CopyrightHolder;
+        protected $CopyrightHolder;
 
         /**
          * @var AbstractProperty
          */
-        private $GrantFundingAgency;
+        protected $GrantFundingAgency;
 
         /**
          * @var AbstractProperty
          */
-        private $PeerReviewStatus;
+        protected $PeerReviewStatus;
 
         /**
          * @var AbstractProperty
          */
-        private $RightsURI;
+        protected $RightsURI;
 
         /**
          * @var AbstractProperty
          */
-        private $ScholarlyLevel;
+        protected $ScholarlyLevel;
 
         /**
          * @var AbstractProperty
          */
-        private $Series;
+        protected $Series;
 
         /**
          * @var AbstractProperty
          */
-        private $URI;
+        protected $URI;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCitation () {
+
+            return $this->Citation;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCopyrightHolder () {
+
+            return $this->CopyrightHolder;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getGrantFundingAgency () {
+
+            return $this->GrantFundingAgency;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getPeerReviewStatus () {
+
+            return $this->PeerReviewStatus;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getRightsURI () {
+
+            return $this->RightsURI;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getScholarlyLevel () {
+
+            return $this->ScholarlyLevel;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getSeries () {
+
+            return $this->Series;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getURI () {
+
+            return $this->URI;
+        }
 
     }

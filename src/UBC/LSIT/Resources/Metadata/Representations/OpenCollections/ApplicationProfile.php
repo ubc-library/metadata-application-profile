@@ -12,7 +12,6 @@
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-
     /**
      * Class ApplicationProfile
      *
@@ -40,18 +39,21 @@
             if($date === false) {
                 $this->SortDate = new Schemas\DC\Properties\Date($date, 'Sort Date');
             }
-            $this->SortDate->setAttribute('lang','en');
+            $this->SortDate->setAttribute('lang', 'en');
         }
-
+        
 
         public function generateSchemaDefinitionAsJSON () {
-
-            $this->setAccessIdentifier(" ");
-
             return $this->getAll();
         }
 
-        public function getAll ($verbose = false) {
+        /*
+        public function setAccessIdentifier ($value, $label = false) {
+            $this->AccessIdentifier = new Schemas\DCTerms\Properties\Identifier($value, $label);
+        }
+        */
+
+        private function getAll ($verbose = false) {
 
             $data = [];
             foreach ($this as $k => $v) {
@@ -91,4 +93,6 @@
 
             return $data;
         }
+
+
     }

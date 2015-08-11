@@ -21,5 +21,21 @@
          * @var AbstractProperty
          */
         private $FileUUID;
-        
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getAIPUUID () {
+
+            return $this->AIPUUID;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getFileUUID () {
+
+            return $this->FileUUID;
+        }
+
     }

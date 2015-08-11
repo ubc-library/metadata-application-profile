@@ -21,102 +21,248 @@
         /**
          * @var AbstractProperty
          */
-        private $Bottom;
+        protected $Bottom;
 
         /**
          * @var AbstractProperty
          */
-        private $CatalogueNumber;
+        protected $CatalogueNumber;
 
         /**
          * @var AbstractProperty
          */
-        private $CollectedBy;
+        protected $CollectedBy;
 
         /**
          * @var AbstractProperty
          */
-        private $CollectorNumber;
+        protected $CollectorNumber;
 
         /**
          * @var AbstractProperty
          */
-        private $Cover;
+        protected $Cover;
 
         /**
          * @var AbstractProperty
          */
-        private $Current;
+        protected $Current;
 
         /**
          * @var AbstractProperty
          */
-        private $DepthOfCapture;
+        protected $DepthOfCapture;
 
         /**
          * @var AbstractProperty
          */
-        private $DepthOfWater;
+        protected $DepthOfWater;
 
         /**
          * @var AbstractProperty
          */
-        private $DistanceOffshore;
+        protected $DistanceOffshore;
 
         /**
          * @var AbstractProperty
          */
-        private $Map;
+        protected $Map;
 
         /**
          * @var AbstractProperty
          */
-        private $MethodOfCapture;
+        protected $MethodOfCapture;
 
         /**
          * @var AbstractProperty
          */
-        private $OriginalPreserved;
+        protected $OriginalPreserved;
 
         /**
          * @var AbstractProperty
          */
-        private $Shore;
+        protected $Shore;
 
         /**
          * @var AbstractProperty
          */
-        private $StreamWidth;
+        protected $StreamWidth;
 
         /**
          * @var AbstractProperty
          */
-        private $Temperature;
+        protected $Temperature;
 
         /**
          * @var AbstractProperty
          */
-        private $Tide;
+        protected $Tide;
 
         /**
          * @var AbstractProperty
          */
-        private $Vegetation;
+        protected $Vegetation;
 
         /**
          * @var AbstractProperty
          */
-        private $Water;
+        protected $Water;
 
         /**
          * @var AbstractProperty
          */
-        private $Watershed;
+        protected $Watershed;
 
+        /**
+         * @return AbstractProperty
+         */
+        public function getBottom () {
 
-        public function setCatalogueNumber ($value, $label = false) {
+            return $this->Bottom;
+        }
 
-            $this->CatalogueNumber = new Schemas\DCTerms\Properties\Identifier($value, $label);
+        /**
+         * @return AbstractProperty
+         */
+        public function getCatalogueNumber () {
+
+            return $this->CatalogueNumber;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCollectedBy () {
+
+            return $this->CollectedBy;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCollectorNumber () {
+
+            return $this->CollectorNumber;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCover () {
+
+            return $this->Cover;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCurrent () {
+
+            return $this->Current;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDepthOfCapture () {
+
+            return $this->DepthOfCapture;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDepthOfWater () {
+
+            return $this->DepthOfWater;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDistanceOffshore () {
+
+            return $this->DistanceOffshore;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getMap () {
+
+            return $this->Map;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getMethodOfCapture () {
+
+            return $this->MethodOfCapture;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getOriginalPreserved () {
+
+            return $this->OriginalPreserved;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getShore () {
+
+            return $this->Shore;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getStreamWidth () {
+
+            return $this->StreamWidth;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getTemperature () {
+
+            return $this->Temperature;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getTide () {
+
+            return $this->Tide;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getVegetation () {
+
+            return $this->Vegetation;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getWater () {
+
+            return $this->Water;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getWatershed () {
+
+            return $this->Watershed;
         }
 
     }

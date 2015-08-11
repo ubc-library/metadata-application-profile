@@ -15,26 +15,66 @@
         /**
          * @var AbstractProperty
          */
-        private $Category;
+        protected $Category;
 
         /**
          * @var AbstractProperty
          */
-        private $Contents;
+        protected $Contents;
 
         /**
          * @var AbstractProperty
          */
-        private $Edition;
+        protected $Edition;
 
         /**
          * @var AbstractProperty
          */
-        private $PersonOrCorporation;
+        protected $PersonOrCorporation;
 
         /**
          * @var AbstractProperty
          */
-        private $UBCCallNumber;
+        protected $UBCCallNumber;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCategory () {
+
+            return $this->Category;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getContents () {
+
+            return $this->Contents;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getEdition () {
+
+            return $this->Edition;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getPersonOrCorporation () {
+
+            return $this->PersonOrCorporation;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getUBCCallNumber () {
+
+            return $this->UBCCallNumber;
+        }
 
     }

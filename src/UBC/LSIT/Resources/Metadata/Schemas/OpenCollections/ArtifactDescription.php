@@ -11,8 +11,17 @@
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
     trait ArtifactDescription {
+
         /**
          * @var AbstractProperty
          */
-        private $Reference;
+        protected $Reference;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getReference () {
+
+            return $this->Reference;
+        }
     }

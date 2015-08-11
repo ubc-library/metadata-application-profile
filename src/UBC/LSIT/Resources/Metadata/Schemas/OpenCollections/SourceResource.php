@@ -15,21 +15,54 @@
         /**
          * @var AbstractProperty
          */
-        private $DateAvailable;
+        protected $DateAvailable;
 
         /**
          * @var AbstractProperty
          */
-        private $DateCreated;
+        protected $DateCreated;
 
-        //private $DateCreated;
-        /**
-         * @var AbstractProperty
-         */
-        private $DateIssued;
 
         /**
          * @var AbstractProperty
          */
-        private $Source;
+        protected $DateIssued;
+
+        /**
+         * @var AbstractProperty
+         */
+        protected $Source;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDateAvailable () {
+
+            return $this->DateAvailable;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDateCreated () {
+
+            return $this->DateCreated;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDateIssued () {
+
+            return $this->DateIssued;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getSource () {
+
+            return $this->Source;
+        }
+
     }

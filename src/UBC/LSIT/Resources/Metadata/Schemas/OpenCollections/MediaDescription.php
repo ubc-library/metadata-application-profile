@@ -15,11 +15,27 @@
         /**
          * @var AbstractProperty
          */
-        private $Credits;
+        protected $Credits;
 
         /**
          * @var AbstractProperty
          */
-        private $Episode;
+        protected $Episode;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCredits () {
+
+            return $this->Credits;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getEpisode () {
+
+            return $this->Episode;
+        }
 
     }

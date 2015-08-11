@@ -15,15 +15,40 @@
         /**
          * @var AbstractProperty
          */
-        private $Campus;
+        protected $Campus;
 
         /**
          * @var AbstractProperty
          */
-        private $DegreeGrantor;
+        protected $DegreeGrantor;
 
         /**
          * @var AbstractProperty
          */
-        private $Program;
+        protected $Program;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCampus () {
+
+            return $this->Campus;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDegreeGrantor () {
+
+            return $this->DegreeGrantor;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getProgram () {
+
+            return $this->Program;
+        }
+
     }

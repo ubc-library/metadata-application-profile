@@ -15,11 +15,27 @@
         /**
          * @var AbstractProperty
          */
-        private $Country;
+        protected $Country;
 
         /**
          * @var AbstractProperty
          */
-        private $ProvinceOrState;
+        protected $ProvinceOrState;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCountry () {
+
+            return $this->Country;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getProvinceOrState () {
+
+            return $this->ProvinceOrState;
+        }
 
     }
