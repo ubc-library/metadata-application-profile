@@ -15,12 +15,27 @@
         /**
          * @var AbstractProperty
          */
+        private $Affiliation;
+
+        /**
+         * @var AbstractProperty
+         */
         private $CatalogueRecord;
 
         /**
          * @var AbstractProperty
          */
+        private $Degree;
+
+        /**
+         * @var AbstractProperty
+         */
         private $DigitalIdentifier;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $GraduationDate;
 
         /**
          * @var AbstractProperty
