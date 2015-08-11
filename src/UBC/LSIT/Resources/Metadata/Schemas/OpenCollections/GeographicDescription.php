@@ -7,7 +7,19 @@
      */
     
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
     trait GeographicDescription {
-        
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Country;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $ProvinceOrState;
+
     }

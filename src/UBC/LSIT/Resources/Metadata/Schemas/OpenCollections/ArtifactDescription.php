@@ -7,7 +7,12 @@
      */
     
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
     trait ArtifactDescription {
-        
+        /**
+         * @var AbstractProperty
+         */
+        private $Reference;
     }

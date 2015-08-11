@@ -41,11 +41,6 @@
         /**
          * @var AbstractProperty
          */
-        private $Country;
-
-        /**
-         * @var AbstractProperty
-         */
         private $Cover;
 
         /**
@@ -97,11 +92,6 @@
          * @var AbstractProperty
          */
         private $OriginalPreserved;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $ProvinceOrState;
 
         /**
          * @var AbstractProperty

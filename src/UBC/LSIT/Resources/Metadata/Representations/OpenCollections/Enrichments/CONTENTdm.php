@@ -18,20 +18,14 @@
      */
     trait CONTENTdm {
 
-        /**
-         * @var AbstractProperty
-         */
-        private $AIPUUID;
+
 
         /**
          * @var AbstractProperty
          */
         private $CatalogueRecord;
 
-        /**
-         * @var AbstractProperty
-         */
-        private $Category;
+
 
 
 
@@ -40,31 +34,19 @@
          */
         private $DigitalIdentifier;
 
-        /**
-         * @var AbstractProperty
-         */
-        private $Edition;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $FileUUID;
 
 
-        /**
-         * @var AbstractProperty
-         */
-        private $PersonOrCorporation;
+
+
+
+
 
         /**
          * @var AbstractProperty
          */
         private $RBSCLocation;
 
-        /**
-         * @var AbstractProperty
-         */
-        private $Reference;
+
 
         /**
          * @var AbstractProperty
@@ -76,10 +58,6 @@
          */
         private $Translation;
 
-        /**
-         * @var AbstractProperty
-         */
-        private $UBCCallNumber;
 
 
     }

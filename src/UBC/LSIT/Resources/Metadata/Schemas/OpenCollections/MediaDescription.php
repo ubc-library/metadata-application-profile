@@ -7,7 +7,19 @@
      */
     
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
     class MediaDescription {
-        
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Credits;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $Episode;
+
     }

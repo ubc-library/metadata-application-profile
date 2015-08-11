@@ -7,7 +7,19 @@
      */
     
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    use OpenLibrary\Metadata\Schemas\AbstractProperty;
     
     trait DigitalPreservation {
+
+        /**
+         * @var AbstractProperty
+         */
+        private $AIPUUID;
+
+        /**
+         * @var AbstractProperty
+         */
+        private $FileUUID;
         
     }
