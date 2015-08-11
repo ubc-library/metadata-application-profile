@@ -10,29 +10,22 @@
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
+    use OpenLibrary\Metadata\Profiles\DPLA;
 
-    class BaseProfile
+    class SourceResource
     {
+        use DPLA\SourceResource;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Identifier
-         */
-        private $AccessIdentifier;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Alternative
-         */
-        private $AlternateTitle;
+
+
 
         /**
          * @var AbstractProperty
          */
         private $Annotation;
 
-        /**
-         * @var Schemas\DCTerms\Properties\IsPartOf
-         */
-        private $Collection;
+
 
         /**
          * @var Schemas\DCTerms\Properties\Title
@@ -44,15 +37,9 @@
          */
         private $CollectionDescription;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Creator
-         */
-        private $Creator;
 
-        /**
-         * @var Schemas\DC\Properties\Date
-         */
-        private $Date;
+
+
 
         /**
          * @var AbstractProperty
@@ -70,30 +57,16 @@
          */
         private $DateIssued;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Description
-         */
-        private $Description;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Extent
-         */
-        private $Extent;
 
         /**
          * @var AbstractProperty
          */
         private $FileFormat;
 
-        /**
-         * @var Schemas\EDM\Properties\HasType
-         */
-        private $Genre;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Spatial
-         */
-        private $GeographicLocation;
+
+
 
         /**
          * @var AbstractProperty
@@ -102,30 +75,20 @@
          */
         private $IsShownAt;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Language
-         */
-        private $Language;
+
 
         /**
          * @var Schemas\DCTerms\Properties\License
          */
         private $License;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Relation
-         */
-        private $ProjectWebsite;
+
 
         /**
          * @var AbstractProperty
          */
         private $Provider;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Publisher
-         */
-        private $Publisher;
 
         /**
          * @var AbstractProperty
@@ -137,20 +100,8 @@
          */
         private $Series;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Subject
-         */
-        private $Subject;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Title
-         */
-        private $Title;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Type
-         */
-        private $Type;
 
 
         /**

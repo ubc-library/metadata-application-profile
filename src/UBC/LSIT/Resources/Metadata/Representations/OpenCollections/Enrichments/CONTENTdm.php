@@ -33,10 +33,7 @@
          */
         private $Category;
 
-        /**
-         * @var Schemas\DCTerms\Properties\Contributor
-         */
-        private $Contributor;
+
 
         /**
          * @var AbstractProperty
