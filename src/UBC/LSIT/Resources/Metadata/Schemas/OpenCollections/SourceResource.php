@@ -22,7 +22,6 @@
          */
         protected $DateCreated;
 
-
         /**
          * @var AbstractProperty
          */
