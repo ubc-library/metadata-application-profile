@@ -8,6 +8,10 @@
 
     namespace UBC\LSIT\Resources\Metadata\Schemas;
 
+    use OpenLibrary\Metadata\Schemas\AbstractProperty;
+
+    /** @deprecated */
+
 
     class Aggregation
     {
