@@ -10,8 +10,6 @@
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    /** @deprecated */
-
 
     class Aggregation
     {
