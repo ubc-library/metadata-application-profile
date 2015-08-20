@@ -12,6 +12,7 @@
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    use Sabre\XML\Writer;
 
     /**
      * Class ApplicationProfile

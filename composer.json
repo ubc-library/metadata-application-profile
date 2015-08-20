@@ -23,9 +23,15 @@
             "url": "https://github.com/open-library/metadata-resources.git"
         }
     ],
+    "require-dev": {
+        "php": ">=5.3.0",
+        "open-library/metadata-resources": "dev-master",
+        "sabre/xml": "@stable"
+    },
     "require": {
         "php": ">=5.3.0",
-        "open-library/metadata-resources": "dev-master"
+        "open-library/metadata-resources": "dev-master",
+        "sabre/xml": "@stable"
     },
     "autoload": {
         "psr-4": {
