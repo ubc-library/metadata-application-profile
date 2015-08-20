@@ -56,6 +56,16 @@
             $this->SortDate->setAttribute ('classmap', $this->getClassmap ('SortDate'));
         }
 
+        /**
+         * @return AbstractProperty
+         */
+        public function getSortDate ()
+        {
+            return $this->SortDate;
+        }
+
+
+
         private function getClassmap ($name)
         {
 
