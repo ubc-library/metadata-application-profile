@@ -13,6 +13,11 @@
         /**
          * @var AbstractProperty
          */
+        protected $Category;
+
+        /**
+         * @var AbstractProperty
+         */
         private $CollectorNumber;
 
         /**
@@ -76,6 +81,14 @@
         public function getCatalogueNumber()
         {
             return $this->CatalogueNumber;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getCategory()
+        {
+            return $this->Category;
         }
 
         /**

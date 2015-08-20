@@ -5,17 +5,14 @@
      * Date: 10 Aug 15
      * Time: 23:24
      */
-    
+
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
     trait PublicationDescription {
 
-        /**
-         * @var AbstractProperty
-         */
-        protected $Category;
+
 
         /**
          * @var AbstractProperty
@@ -72,14 +69,6 @@
          * @var AbstractProperty
          */
         protected $URI;
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getCategory()
-        {
-            return $this->Category;
-        }
 
         /**
          * @return AbstractProperty
