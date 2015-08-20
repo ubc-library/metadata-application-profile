@@ -26,11 +26,6 @@
         /**
          * @var AbstractProperty
          */
-        protected $CatalogueNumber;
-
-        /**
-         * @var AbstractProperty
-         */
         protected $CollectedBy;
 
         /**
@@ -119,14 +114,6 @@
         public function getBottom () {
 
             return $this->Bottom;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getCatalogueNumber () {
-
-            return $this->CatalogueNumber;
         }
 
         /**
