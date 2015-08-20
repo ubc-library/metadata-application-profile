@@ -68,34 +68,14 @@ atlassian-ide-plugin.xml
 # All Generated Folders #
 #########################
 ## composer
-./vendor/
 vendor/
 vendor/*
 
-./old_vendor/
 old_vendor/
 old_vendor/*
 
-./_deprecated/
-_deprecated/
-_deprecated/*
-
-
-## php unit reports
-./tests/repos
-/tests/repos/
-/tests/repos/*
-
-
-## php unit reports
-./report/
-report/
-report/*
-
-## node/grunt
-./node_modules/
-node_modules/
-node_modules/*
+.idea/
+.idea/*
 
 # not this file
 !.gitignore
