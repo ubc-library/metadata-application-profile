@@ -219,14 +219,6 @@
         }
 
         /**
-         * @return AbstractProperty
-         */
-        public function getIsShownAt () {
-
-            return $this->IsShownAt;
-        }
-
-        /**
          * @return Schemas\DCTerms\Properties\License
          */
         public function getLicense () {
