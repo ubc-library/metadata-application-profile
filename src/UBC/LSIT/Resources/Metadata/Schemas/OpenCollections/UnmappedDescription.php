@@ -5,7 +5,7 @@
      * Date: 10 Aug 15
      * Time: 23:29
      */
-    
+
     namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas;
@@ -77,13 +77,6 @@
          * @var AbstractProperty
          */
         private $FileFormat;
-
-        /**
-         * @var AbstractProperty
-         *
-         * This is the DOI
-         */
-        private $IsShownAt;
 
         /**
          * @var Schemas\DCTerms\Properties\License
