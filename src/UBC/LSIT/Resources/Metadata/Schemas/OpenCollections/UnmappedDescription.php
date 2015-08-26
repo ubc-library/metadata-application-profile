@@ -16,103 +16,103 @@
         /**
          * @var AbstractProperty
          */
-        private $Affiliation;
+        public $Affiliation;
 
         /**
          * @var AbstractProperty
          */
-        private $CatalogueRecord;
+        public $CatalogueRecord;
 
         /**
          * @var AbstractProperty
          */
-        private $Degree;
+        public $Degree;
 
         /**
          * @var AbstractProperty
          */
-        private $DigitalIdentifier;
+        public $DigitalIdentifier;
 
         /**
          * @var AbstractProperty
          */
-        private $GraduationDate;
+        public $GraduationDate;
 
         /**
          * @var AbstractProperty
          */
-        private $Locality;
+        public $Locality;
 
         /**
          * @var AbstractProperty
          */
-        private $RBSCLocation;
+        public $RBSCLocation;
 
         /**
          * @var AbstractProperty
          */
-        private $Time;
+        public $Time;
 
         /**
          * @var AbstractProperty
          */
-        private $Translation;
+        public $Translation;
 
         /**
          * @var AbstractProperty
          */
-        private $Annotation;
+        public $Annotation;
 
         /**
          * @var Schemas\DCTerms\Properties\Title
          */
-        private $CollectionTitle;
+        public $CollectionTitle;
 
         /**
          * @var AbstractProperty
          */
-        private $CollectionDescription;
+        public $CollectionDescription;
 
         /**
          * @var AbstractProperty
          */
-        private $FileFormat;
+        public $FileFormat;
 
         /**
          * @var Schemas\DCTerms\Properties\License
          */
-        private $License;
+        public $License;
 
         /**
          * @var AbstractProperty
          */
-        private $Provider;
+        public $Provider;
 
         /**
          * @var AbstractProperty
          */
-        private $Rights;
+        public $Rights;
 
         /**
          * @var AbstractProperty
          */
-        private $AggregatedSourceRepository;
+        public $AggregatedSourceRepository;
 
         /**
          * @var AbstractProperty
          */
-        private $DigitalResourceOriginalRecord;
+        public $DigitalResourceOriginalRecord;
 
 
         /**
          * @var AbstractProperty
          */
-        private $HasView;
+        public $HasView;
 
         /**
          * @var AbstractProperty
          */
-        private $ResourceAnnotated;
+        public $ResourceAnnotated;
 
         /**
          * @return AbstractProperty

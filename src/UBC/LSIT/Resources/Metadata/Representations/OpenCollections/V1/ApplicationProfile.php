@@ -8,10 +8,12 @@
 
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\V1;
 
+
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    use UBC\LSIT\Resources\Metadata\Representations\OpenCollections\BaseProfile;
     use Sabre\XML\Writer;
 
     /**
@@ -22,84 +24,19 @@
      * kept in this file, especially as they may be system generated if not
      * found in the source resource
      */
-    class ApplicationProfile
+    class ApplicationProfile extends BaseProfile
     {
 
-        use Profiles\DPLA\SourceResource;
-        use OpenCollections\ArtifactDescription;
-        use OpenCollections\DataDescription;
-        use OpenCollections\DigitalPreservation;
-        use OpenCollections\FieldNotesDescription;
-        use OpenCollections\GeographicDescription;
-        use OpenCollections\MediaDescription;
-        use OpenCollections\PublicationDescription;
-        use OpenCollections\SourceResource;
-        use OpenCollections\ThesisDescription;
-        use OpenCollections\UnmappedDescription;
-
-        /**
-         * @var AbstractProperty
-         */
-        private $SortDate;
+        private $version = 1;
 
         /**
          * @param bool|false $date
          */
         public function __construct ($date = false)
         {
-
-            if ($date === false) {
-                $this->SortDate = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
-            } else {
-                $this->SortDate = new Schemas\DC\Properties\Date($date, 'Sort Date');
-            }
-            $this->SortDate->setAttribute ('lang', 'en');
-            $this->SortDate->setAttribute ('classmap', $this->getClassmap ('SortDate'));
+            parent::__construct($date);
         }
 
-        /**
-         * @return AbstractProperty
-         */
-        public function getSortDate ()
-        {
-            return $this->SortDate;
-        }
-
-
-
-        private function getClassmap ($name)
-        {
-
-            $ret = false;
-
-            $reflect = new \ReflectionClass($this);
-            $traits = $reflect->getTraits ();
-
-            foreach ($traits as $k => $trait) {
-                $props = $trait->getProperties ();
-                foreach ($props as $prop) {
-                    if ($prop->name === $name) {
-                        $class = $prop->class;
-                        $class = str_ireplace ("openlibrary\\", "", $class);
-                        $class = str_ireplace ("metadata\\", "", $class);
-                        $class = str_ireplace ("profiles\\", "", $class);
-                        $class = str_ireplace ("properties\\", "", $class);
-                        $class = str_ireplace ("ubc\\", "", $class);
-                        $class = str_ireplace ("lsit\\", "", $class);
-                        $class = str_ireplace ("resources\\", "", $class);
-                        $class = str_ireplace ("schemas\\", "", $class);
-
-                        $class = str_ireplace ("dpla\\", "dpla:", $class);
-                        $class = str_ireplace ("opencollections\\", "oc:", $class);
-
-                        return $class;
-                    }
-                }
-
-            }
-
-            return $ret;
-        }
 
         private function _setProperty(AbstractProperty $obj, $propertyName, &$attributes){
             $attributes['ns'] = $this->getNamespace ($obj);
@@ -118,23 +55,7 @@
             $this->{$propertyName} = $obj;
         }
 
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setSortDate ($value = false, $label = false, $attributes = [])
-        {
-            if ($value === false) {
-                $obj = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
-            } else {
-                $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
-            }
-            $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
-            $obj->setAttributes ($attributes);
-            $this->SortDate = $obj;
-        }
+
 
         /**
          * @param            $value
@@ -716,14 +637,6 @@
             $attributes['classmap'] = $this->getClassmap ('Type');
             $obj->setAttributes ($attributes);
             $this->Type[] = $obj;
-        }
-
-        private function getNamespace ($obj)
-        {
-            $reflect = new \ReflectionObject($obj);
-            $ret = $reflect->getParentClass ()->getDefaultProperties ();
-
-            return isset($ret['uri']) ? $ret ['uri'] : false;
         }
 
         public function setSource ($value, $label = false, $attributes = [])
