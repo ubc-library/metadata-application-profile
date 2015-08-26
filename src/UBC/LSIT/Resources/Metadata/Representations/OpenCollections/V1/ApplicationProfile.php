@@ -101,11 +101,39 @@
             return $ret;
         }
 
+        private function _setProperty(AbstractProperty $obj, $propertyName, &$attributes){
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['classmap'] = $this->getClassmap ($propertyName);
+            $obj->setAttributes ($attributes);
+            $this->{$propertyName} = $obj;
+        }
+
+        /**
+         * @deprecated use _setProperty instead
+         */
         private function _setPropertyAttributes(AbstractProperty $obj, $propertyName, &$attributes){
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ($propertyName);
             $obj->setAttributes ($attributes);
             $this->{$propertyName} = $obj;
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setSortDate ($value = false, $label = false, $attributes = [])
+        {
+            if ($value === false) {
+                $obj = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
+            } else {
+                $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
+            }
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
+            $obj->setAttributes ($attributes);
+            $this->SortDate = $obj;
         }
 
         /**
@@ -131,8 +159,7 @@
         public function setProgram ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -143,8 +170,7 @@
         public function setDegreeGrantor ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -155,8 +181,7 @@
         public function setCampus ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -167,8 +192,7 @@
         public function setDateIssued ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -179,8 +203,7 @@
         public function setDateCreated ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -191,8 +214,7 @@
         public function setURI ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -203,8 +225,7 @@
         public function setSeries ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -215,8 +236,7 @@
         public function setScholarlyLevel ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -227,8 +247,7 @@
         public function setRightsURI ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -239,8 +258,7 @@
         public function setPersonOrCorporation ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -251,8 +269,7 @@
         public function setPeerReviewStatus ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -263,8 +280,7 @@
         public function setGrantFundingAgency ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -275,8 +291,7 @@
         public function setEdition ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -287,8 +302,7 @@
         public function setCopyrightHolder ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -299,8 +313,7 @@
         public function setContents ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -311,8 +324,7 @@
         public function setCitation ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -323,8 +335,7 @@
         public function setCategory ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -335,8 +346,7 @@
         public function setEpisode ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -347,8 +357,7 @@
         public function setCredits ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -359,8 +368,7 @@
         public function setProvinceOrState ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -371,8 +379,7 @@
         public function setCountry ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -383,8 +390,7 @@
         public function setWatershed ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -395,8 +401,7 @@
         public function setWater ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -407,8 +412,7 @@
         public function setVegetation ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -418,8 +422,7 @@
          */
         public function setTide ($value, $label = false, $attributes = []){
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -430,8 +433,7 @@
         public function setTemperature ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -442,8 +444,7 @@
         public function setStreamWidth ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -454,8 +455,7 @@
         public function setShore ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -466,8 +466,7 @@
         public function setOriginalPreserved ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -478,8 +477,7 @@
         public function setMethodOfCapture ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -490,8 +488,7 @@
         public function setMap ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -502,8 +499,7 @@
         public function setDistanceOffshore ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -514,8 +510,7 @@
         public function setDepthOfWater ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -526,8 +521,7 @@
         public function setDepthOfCapture ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -538,8 +532,7 @@
         public function setCurrent ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -550,8 +543,7 @@
         public function setCover ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -562,8 +554,7 @@
         public function setCollectorNumber ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -574,8 +565,7 @@
         public function setCollectedBy ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -586,8 +576,7 @@
         public function setCatalogueNumber ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -598,8 +587,7 @@
         public function setBottom ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
         /**
@@ -610,8 +598,7 @@
         public function setReference ($value, $label = false, $attributes = [])
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $obj = new Schemas\DCTerms\Properties\Alternative ($value, $label = false, $attributes = []);
-            $this->_setPropertyAttributes($obj,str_replace("set","",__FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label, $attributes),str_replace("set","",__FUNCTION__), $attributes);
         }
 
 
@@ -860,42 +847,38 @@
         {
             if ($verbose) {
                 return $this->getAllVerbosely ();
-            }
+            } else {
+                $data = [];
+                foreach ($this as $k => $v) {
+                    if (isset($v) && !is_null ($v)) {
+                        $cmd = "get{$k}";
+                        if (method_exists ($this, $cmd)) {
+                            $v = $this->{$cmd}();
+                            if (is_array ($v)) {
+                                foreach ($v as &$_v) {
+                                    $data[$k][] = [
+                                          'label'   => $_v->getLabel ()
+                                        , 'value'   => $_v->getValue ()
+                                        , 'attrs'   => $_v->getAttributes ()
+                                    ];
+                                }
+                            } else {
+                                $data[$k][] = [
+                                      'label'   => $v->getLabel ()
+                                    , 'value'   => $v->getValue ()
+                                    , 'attrs'   => $v->getAttributes ()
+                                ];
 
-            $data = [];
-            foreach ($this as $k => $v) {
-
-                $cmd = "get{$k}";
-                if (method_exists ($this, $cmd)) {
-                    $v = $this->{$cmd}();
-                }
-
-                if (isset($v) && !is_null ($v)) {
-
-                    if (is_array ($v)) {
-                        foreach ($v as &$_v) {
-                            $data[$k][] = [
-                                'label' => $_v->getLabel ()
-                                , 'value' => $_v->getValue ()
-                                , 'ocmap' => $_v->getName ()
-                            ];
+                            }
                         }
 
                     } else {
-                        $data[$k][] = [
-                            'label' => $v->getLabel ()
-                            , 'value' => $v->getValue ()
-                            , 'ocmap' => $v->getName ()
-                        ];
+                        unset($data[$k]);
                     }
-
-                } else {
-                    $data[$k][] = [];
                 }
+
+                return $data;
             }
-
-
-            return $data;
         }
 
         private function getAllVerbosely ()
@@ -909,7 +892,7 @@
                         if (is_array ($v)) {
                             foreach ($v as &$_v) {
                                 $data[$k][] = [
-                                    'label'   => $_v->getLabel ()
+                                      'label'   => $_v->getLabel ()
                                     , 'value'   => $_v->getValue ()
                                     , 'ocmap'   => $_v->getName ()
                                     , 'attrs'   => $_v->getAttributes ()
@@ -919,7 +902,7 @@
                             }
                         } else {
                             $data[$k][] = [
-                                'label'   => $v->getLabel ()
+                                  'label'   => $v->getLabel ()
                                 , 'value'   => $v->getValue ()
                                 , 'ocmap'   => $v->getName ()
                                 , 'attrs'   => $v->getAttributes ()
