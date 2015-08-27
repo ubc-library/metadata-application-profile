@@ -9,12 +9,11 @@
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\V1;
 
     /**
-     * Class ApplicationProfile
+     * Class SearchMapper
      *
-     * Whilst most of the properties should be in their contextual profiles,
-     * some, such as the Sort Date, which are needed by the Application, are
-     * kept in this file, especially as they may be system generated if not
-     * found in the source resource
+     * The Search Mapper is used to map Application Profile properties to system properties e.g. for elasticsearch
+     *
+     * ApplicationProperty => SystemProperty
      */
     class SearchMapper
     {
