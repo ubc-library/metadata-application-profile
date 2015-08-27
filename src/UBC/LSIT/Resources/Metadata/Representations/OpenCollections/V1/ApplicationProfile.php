@@ -41,6 +41,7 @@
         private function _setProperty(AbstractProperty $obj, $propertyName, &$attributes){
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ($propertyName);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->{$propertyName} = $obj;
         }
@@ -529,6 +530,7 @@
             $obj = new Schemas\DCTerms\Properties\IsPartOf ($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Collection');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Collection = $obj;
         }
@@ -539,6 +541,7 @@
             $obj = new Schemas\DCTerms\Properties\Contributor($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Contributor');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Contributor[] = $obj;
         }
@@ -549,6 +552,7 @@
             $obj = new Schemas\DCTerms\Properties\Creator($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Creator');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Creator[] = $obj;
         }
@@ -559,6 +563,7 @@
             $obj = new Schemas\DC\Properties\Date($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Date');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Date[] = $obj;
         }
@@ -569,6 +574,7 @@
             $obj = new Schemas\DCTerms\Properties\Description($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Description');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Description[] = $obj;
         }
@@ -578,6 +584,7 @@
             $obj = new Schemas\DCTerms\Properties\Extent($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Extent');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Extent[] = $obj;
         }
@@ -587,6 +594,7 @@
             $obj = new Schemas\EDM\Properties\HasType($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Genre');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Genre[] = $obj;
         }
@@ -597,6 +605,7 @@
             $obj = new Schemas\DCTerms\Properties\Relation($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('ProjectWebsite');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->ProjectWebsite[] = $obj;
         }
@@ -607,6 +616,7 @@
             $obj = new Schemas\DCTerms\Properties\Publisher($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Publisher');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Publisher[] = $obj;
         }
@@ -617,6 +627,7 @@
             $obj = new Schemas\DCTerms\Properties\Subject($value, $label);
             $attributes['ns'] = $this->getNamespace ($obj);
             $attributes['classmap'] = $this->getClassmap ('Subject');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Subject[] = $obj;
         }
@@ -626,6 +637,7 @@
 
             $obj = new Schemas\DCTerms\Properties\Title($value, $label);
             $attributes['classmap'] = $this->getClassmap ('Title');
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Title[] = $obj;
         }
@@ -635,6 +647,8 @@
 
             $obj = new Schemas\DCTerms\Properties\Type($value, $label);
             $attributes['classmap'] = $this->getClassmap ('Type');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Type[] = $obj;
         }
@@ -644,6 +658,8 @@
 
             $obj = new Schemas\DCTerms\Properties\Source($value, $label);
             $attributes['classmap'] = $this->getClassmap ('Source');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Source = $obj;
         }
@@ -652,6 +668,8 @@
         {
             $obj = new Schemas\DC\Properties\Format($value, $label);
             $attributes['classmap'] = $this->getClassmap ('FileFormat');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->FileFormat[] = $obj;
         }
@@ -660,6 +678,8 @@
         {
             $obj = new Schemas\DCTerms\Properties\Identifier($value, $label);
             $attributes['classmap'] = $this->getClassmap ('UBCCallNumber');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->UBCCallNumber = $obj;
         }
@@ -668,6 +688,8 @@
         {
             $obj = new Schemas\DCTerms\Properties\IsReferencedBy($value, $label);
             $attributes['classmap'] = $this->getClassmap ('CatalogueRecord');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->CatalogueRecord = $obj;
         }
@@ -676,6 +698,8 @@
         {
             $obj = new Schemas\DCTerms\Properties\Rights($value, $label);
             $attributes['classmap'] = $this->getClassmap ('Rights');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Rights = $obj;
         }
@@ -684,6 +708,8 @@
         {
             $obj = new Schemas\DCTerms\Properties\Available($value, $label);
             $attributes['classmap'] = $this->getClassmap ('DateAvailable');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->DateAvailable = $obj;
         }
@@ -692,6 +718,8 @@
         {
             $obj = new Schemas\OpenAnnotation\Annotation ($value, 'this', $label);
             $attributes['classmap'] = $this->getClassmap ('Annotation');
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['property'] = $obj->getName();
             $obj->setAttributes ($attributes);
             $this->Annotation[] = $obj;
         }
