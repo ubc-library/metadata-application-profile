@@ -71,7 +71,7 @@
             'Tide'                => 'tide',
             'Title'               => 'title',
             'Type'                => 'type',
-            'URI'                 => 'uRI',
+            'URI'                 => 'uri',
             'Vegetation'          => 'vegetation',
             'Water'               => 'water',
             'Watershed'           => 'watershed'
