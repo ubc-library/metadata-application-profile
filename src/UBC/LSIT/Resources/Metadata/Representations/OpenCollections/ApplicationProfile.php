@@ -876,26 +876,12 @@
         private function getSearchFields ()
         {
             $data = [];
+            $labels = [];
             foreach ($this as $k => $property) {
-//                if (isset($v) && !is_null ($v)) {
-                $cmd = "get{$k}";
-                if (method_exists ($this, $cmd)) {
-                    $v = $this->{$cmd}();
-                    if (is_array ($v)) {
-                        foreach ($v as &$_v) {
-                            $data[$k][] = [
-                                  'label'  => !(null === $_v) ? $_v->getLabel () : $k
-                                , 'sysmap' => SearchMapper::getSystemField ($k)
-                            ];
-                        }
-                    } else {
-                        $data[$k][] = [
-                              'label'  => !(null === $v) ? $v->getLabel () : $k
-                             , 'sysmap' => SearchMapper::getSystemField ($k)
-                        ];
-                    }
-                }
-//                }
+                $data[$k][] = [
+                      'label'  => $labels[$k] ?: $k
+                    , 'sysmap' => SearchMapper::getSystemField ($k)
+                ];
             }
 
             return $data;

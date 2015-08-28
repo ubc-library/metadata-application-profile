@@ -40,7 +40,7 @@
         /**
          * @var AbstractProperty
          */
-        private $SortDate;
+        protected $SortDate;
 
         /**
          * @param bool|false $date
