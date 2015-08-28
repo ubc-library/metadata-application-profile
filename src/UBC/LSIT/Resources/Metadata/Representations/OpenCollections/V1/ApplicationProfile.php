@@ -264,7 +264,7 @@
         private function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false)
         {
             $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = null !== $this->getClassmap ($propertyName) ? $this->getClassmap ($propertyName) : '[class_not_currently_mapped]';
+            $attributes['classmap'] = $this->getClassmap ($propertyName) ?: '[class_not_currently_mapped]';
             $attributes['property'] = $obj->getName ();//was ocmap
             $obj->setAttributes ($attributes);
             if ($isArray) {
