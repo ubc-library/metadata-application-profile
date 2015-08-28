@@ -8,7 +8,7 @@
         /**
          * @var AbstractProperty
          */
-        private $CatalogueNumber;
+        protected $CatalogueNumber;
 
         /**
          * @var AbstractProperty
@@ -18,67 +18,22 @@
         /**
          * @var AbstractProperty
          */
-        private $CollectorNumber;
+        protected $CollectorNumber;
 
         /**
          * @var AbstractProperty
          */
-        private $CollectedBy;
-
-//        /**
-//         * @var AbstractProperty
-//        */
-//        private $Cover;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $Current;
+        protected $CollectedBy;
 
         /**
          * @var AbstractProperty
          */
-        private $Map;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $MethodOfCapture;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $OriginalPreserved;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $Shore;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $StreamWidth;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $Tide;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $Water;
-//
-//        /**
-//         * @var AbstractProperty
-//         */
-//        private $Vegetation;
+        protected $Map;
 
         /**
          * @return AbstractProperty
          */
-        public function getCatalogueNumber()
+        public function getCatalogueNumber ()
         {
             return $this->CatalogueNumber;
         }
@@ -86,7 +41,7 @@
         /**
          * @return AbstractProperty
          */
-        public function getCategory()
+        public function getCategory ()
         {
             return $this->Category;
         }
@@ -94,7 +49,7 @@
         /**
          * @return AbstractProperty
          */
-        public function getCollectorNumber()
+        public function getCollectorNumber ()
         {
             return $this->CollectorNumber;
         }
@@ -102,7 +57,7 @@
         /**
          * @return AbstractProperty
          */
-        public function getCollectedBy()
+        public function getCollectedBy ()
         {
             return $this->CollectedBy;
         }
@@ -110,11 +65,10 @@
         /**
          * @return AbstractProperty
          */
-        public function getMap()
+        public function getMap ()
         {
             return $this->Map;
         }
-
 
 
     }

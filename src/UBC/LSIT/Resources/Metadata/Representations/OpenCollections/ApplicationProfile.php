@@ -6,14 +6,13 @@
      * Time: 1:41 PM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\V1;
+    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
-    use UBC\LSIT\Resources\Metadata\Representations\OpenCollections\BaseProfile;
     use Sabre\XML\Writer;
 
     /**
@@ -31,14 +30,6 @@
          * @var int
          */
         private $version = 1;
-
-        /**
-         * @param bool|false $date
-         */
-        public function __construct ($date = false)
-        {
-            parent::__construct ($date);
-        }
 
         /**
          * @param            $value
@@ -885,46 +876,29 @@
         private function getSearchFields ()
         {
             $data = [];
-            foreach ($this as $k => $v) {
-                if (isset($v) && !is_null ($v)) {
-                    $cmd = "get{$k}";
-                    if (method_exists ($this, $cmd)) {
-                        $v = $this->{$cmd}();
-                        if (is_array ($v)) {
-                            foreach ($v as &$_v) {
-                                $data[$k][] = [
-                                      'label'  => $_v->getLabel ()
-                                    , 'value'  => $_v->getValue ()
-                                    , 'sysmap' => SearchMapper::getSystemField ($k)
-                                ];
-                            }
-                        } else {
+            foreach ($this as $k => $property) {
+//                if (isset($v) && !is_null ($v)) {
+                $cmd = "get{$k}";
+                if (method_exists ($this, $cmd)) {
+                    $v = $this->{$cmd}();
+                    if (is_array ($v)) {
+                        foreach ($v as &$_v) {
                             $data[$k][] = [
-                                  'label'  => $v->getLabel ()
-                                , 'value'  => $v->getValue ()
+                                  'label'  => $_v->getLabel ()
                                 , 'sysmap' => SearchMapper::getSystemField ($k)
                             ];
-
                         }
+                    } else {
+                        $data[$k][] = [
+                              'label'  => $v->getLabel ()
+                            , 'sysmap' => SearchMapper::getSystemField ($k)
+                        ];
                     }
-
-                } else {
-                    unset($data[$k]);
                 }
+//                }
             }
 
             return $data;
-        }
-
-        /**
-         * @deprecated use _setProperty instead
-         */
-        private function _setPropertyAttributes (AbstractProperty $obj, $propertyName, &$attributes)
-        {
-            $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ($propertyName);
-            $obj->setAttributes ($attributes);
-            $this->{$propertyName} = $obj;
         }
 
     }

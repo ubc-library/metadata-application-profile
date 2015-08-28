@@ -91,10 +91,36 @@
             return isset($ret['uri']) ? $ret ['uri'] : false;
         }
 
+        protected function getClasspath ($name)
+        {
+            $reflect = new \ReflectionClass($this);
+            $traits = $reflect->getTraits ();
+
+            foreach ($traits as $k => $trait) {
+                $props = $trait->getProperties ();
+                foreach ($props as $prop) {
+                    if ($prop->name === $name) {
+                        $class = $prop->class;
+                        $class = str_ireplace ("openlibrary\\",'', $class);
+                        $class = str_ireplace ("metadata\\",'', $class);
+                        $class = str_ireplace ("profiles\\",'', $class);
+                        $class = str_ireplace ("properties\\",'', $class);
+                        $class = str_ireplace ("ubc\\",'', $class);
+                        $class = str_ireplace ("lsit\\",'', $class);
+                        $class = str_ireplace ("resources\\",'', $class);
+                        $class = str_ireplace ("schemas\\",'', $class);
+                        $class = str_ireplace ("dpla\\", 'dpla:', $class);
+                        $class = str_ireplace ("opencollections\\", 'oc:', $class);
+                        return $class;
+                    }
+                }
+            }
+            return '[class_not_currently_mapped]';
+        }
+
         protected function getClassmap ($name)
         {
-
-            $ret = false;
+            $ret = '[class_not_currently_mapped]';
             $reflect = new \ReflectionClass($this);
             $traits = $reflect->getTraits ();
 
@@ -113,13 +139,10 @@
                         $class = str_ireplace ("schemas\\", "", $class);
                         $class = str_ireplace ("dpla\\", "dpla:", $class);
                         $class = str_ireplace ("opencollections\\", "oc:", $class);
-
                         return $class;
                     }
                 }
-
             }
-
             return $ret;
         }
 

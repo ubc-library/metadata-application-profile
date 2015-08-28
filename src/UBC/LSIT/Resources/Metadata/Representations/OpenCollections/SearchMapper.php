@@ -6,7 +6,7 @@
      * Time: 1:41 PM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections\V1;
+    namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
     /**
      * Class SearchMapper
