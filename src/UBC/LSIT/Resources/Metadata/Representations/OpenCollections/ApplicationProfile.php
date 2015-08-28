@@ -884,14 +884,14 @@
                     if (is_array ($v)) {
                         foreach ($v as &$_v) {
                             $data[$k][] = [
-                                  'label'  => $_v->getLabel ()
-                                , 'sysmap' => SearchMapper::getSystemField ($k)
+                                  //'label'  => $_v->getLabel ()
+                                 'sysmap' => SearchMapper::getSystemField ($k)
                             ];
                         }
                     } else {
                         $data[$k][] = [
-                              'label'  => $v->getLabel ()
-                            , 'sysmap' => SearchMapper::getSystemField ($k)
+                              //'label'  => $v->getLabel ()
+                             'sysmap' => SearchMapper::getSystemField ($k)
                         ];
                     }
                 }
