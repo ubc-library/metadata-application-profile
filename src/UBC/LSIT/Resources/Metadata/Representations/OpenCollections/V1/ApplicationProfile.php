@@ -264,8 +264,8 @@
         private function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false)
         {
             $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ($propertyName);
-            $attributes['property'] = $obj->getName ();
+            $attributes['classmap'] = null !== $this->getClassmap ($propertyName) ? $this->getClassmap ($propertyName) : '[class_not_currently_mapped]';
+            $attributes['property'] = $obj->getName ();//was ocmap
             $obj->setAttributes ($attributes);
             if ($isArray) {
                 $this->{$propertyName}[] = $obj;
@@ -333,7 +333,7 @@
                                 $data[$k][] = [
                                     'label'     => $_v->getLabel ()
                                     , 'value'   => $_v->getValue ()
-                                    , 'ocmap'   => $_v->getName ()
+                                    //, 'ocmap'   => $_v->getName ()
                                     , 'attrs'   => $_v->getAttributes ()
                                     , 'iri'     => $_v->getUri ()
                                     , 'explain' => $_v->getDescription ()
@@ -343,7 +343,7 @@
                             $data[$k][] = [
                                 'label'     => $v->getLabel ()
                                 , 'value'   => $v->getValue ()
-                                , 'ocmap'   => $v->getName ()
+                                //, 'ocmap'   => $v->getName ()
                                 , 'attrs'   => $v->getAttributes ()
                                 , 'iri'     => $v->getUri ()
                                 , 'explain' => $v->getDescription ()
