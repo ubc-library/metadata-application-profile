@@ -895,14 +895,14 @@
                                 $data[$k][] = [
                                       'label'  => $_v->getLabel ()
                                     , 'value'  => $_v->getValue ()
-                                    , 'sysmap' => SearchMapper::getSystemField ($_v->getName ())
+                                    , 'sysmap' => SearchMapper::getSystemField ($k)
                                 ];
                             }
                         } else {
                             $data[$k][] = [
                                   'label'  => $v->getLabel ()
                                 , 'value'  => $v->getValue ()
-                                , 'sysmap' => SearchMapper::getSystemField ($v->getName ())
+                                , 'sysmap' => SearchMapper::getSystemField ($k)
                             ];
 
                         }
