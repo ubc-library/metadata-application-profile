@@ -42,6 +42,29 @@
          */
         protected $SortDate;
 
+        protected $FullText;
+
+
+        public function setFullText ($v = false, $t = false, $l = 'FullText')
+        {
+            $obj = new Schemas\OpenAnnotation\Annotation($v, $t, $l);
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['classmap'] = $this->getClassmap ('FullText');
+            $obj->setAttributes ($attributes);
+            $this->FullText = $obj;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getFullText ()
+        {
+            return $this->FullText;
+        }
+
+
+
+
         /**
          * @param bool|false $date
          */
