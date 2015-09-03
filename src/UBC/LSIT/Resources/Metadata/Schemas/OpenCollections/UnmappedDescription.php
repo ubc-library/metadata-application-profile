@@ -13,20 +13,12 @@
 
     trait UnmappedDescription {
 
-        /**
-         * @var AbstractProperty
-         */
-        public $Affiliation;
+
 
         /**
          * @var AbstractProperty
          */
         public $CatalogueRecord;
-
-        /**
-         * @var AbstractProperty
-         */
-        public $Degree;
 
         /**
          * @var AbstractProperty

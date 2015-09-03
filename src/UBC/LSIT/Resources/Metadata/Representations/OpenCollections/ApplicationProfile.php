@@ -13,6 +13,8 @@
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    use UBC\LSIT\Resources\Metadata\Schemas\ORE;
+    use UBC\LSIT\Resources\Metadata\Schemas\VIVO;
     use Sabre\XML\Writer;
 
     /**
@@ -360,6 +362,17 @@
         {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
             $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDegree ($value, $label = false, array $attributes = [])
+        {
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty (new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -886,5 +899,9 @@
 
             return $data;
         }
+
+
+
+
 
     }
