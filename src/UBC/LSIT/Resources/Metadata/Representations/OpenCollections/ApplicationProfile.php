@@ -927,7 +927,7 @@
                 , 'DateAvailable'
             ];
 
-            foreach ($data as $props) {
+            foreach ($data as $k => $props) {
                 if (isset($props['property'])) {
                     if (isset($props['value']) && count ($props['value']) > 0) {
                         if ( !is_array ($props['value'])) {
@@ -954,7 +954,7 @@
                         }
                     }
                 } else {
-                    error_log ('Could net find the MAP Property in the give data entry: ' . json_encode($props));
+                    error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
                 }
             }
 
