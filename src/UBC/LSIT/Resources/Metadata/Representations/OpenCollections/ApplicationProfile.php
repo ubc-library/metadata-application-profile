@@ -27,7 +27,6 @@
      */
     class ApplicationProfile extends BaseProfile
     {
-
         /**
          * @var int
          */
@@ -316,6 +315,7 @@
         private function getAllVerbosely ()
         {
             $data = [];
+
             foreach ($this as $k => $v) {
                 if (isset($v) && !is_null ($v)) {
                     $cmd = "get{$k}";
@@ -326,7 +326,6 @@
                                 $data[$k][] = [
                                     'label'     => $_v->getLabel ()
                                     , 'value'   => $_v->getValue ()
-                                    //, 'ocmap'   => $_v->getName ()
                                     , 'attrs'   => $_v->getAttributes ()
                                     , 'iri'     => $_v->getUri ()
                                     , 'explain' => $_v->getDescription ()
@@ -336,7 +335,6 @@
                             $data[$k][] = [
                                 'label'     => $v->getLabel ()
                                 , 'value'   => $v->getValue ()
-                                //, 'ocmap'   => $v->getName ()
                                 , 'attrs'   => $v->getAttributes ()
                                 , 'iri'     => $v->getUri ()
                                 , 'explain' => $v->getDescription ()
