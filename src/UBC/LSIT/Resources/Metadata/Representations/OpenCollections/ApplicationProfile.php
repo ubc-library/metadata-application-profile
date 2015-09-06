@@ -958,9 +958,12 @@
                     } else {
                         error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
                     }
-                } else {
+                }
+                /*
+                else {
                     error_log ("Ignoring controlled key: {$k} | This is not part of the MAP");
                 }
+                */
             }
 
             return $ret;
