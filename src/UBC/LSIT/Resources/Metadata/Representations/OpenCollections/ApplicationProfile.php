@@ -929,7 +929,7 @@
             ];
 
             foreach ($data as $k => $props) {
-                if (isset($props['property']) && stripos($props['property'],$ignoreThisPrefix) !== false) {
+                if (isset($props['property']) && stripos($props['property'],$ignoreThisPrefix) === false) {
                     if (isset($props['value']) && count ($props['value']) > 0) {
                         if ( !is_array ($props['value'])) {
                             $props['value'] = [$props['value']];
