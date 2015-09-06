@@ -901,7 +901,8 @@
         }
 
         /**
-         * @param $data
+         * @param array     $data
+         * @param string    $ignoreThisPrefix   a prefix that can be put on properties to not check them as stubs
          *
          * @return array
          *
@@ -917,7 +918,7 @@
          *  }
          *
          */
-        public function generateMetadataStubs(array $data){
+        public function generateMetadataStubs(array $data, $ignoreThisPrefix = 'internal'){
             $ret = [];
 
             $uniqueFields = [
@@ -928,7 +929,7 @@
             ];
 
             foreach ($data as $k => $props) {
-                if (isset($props['property'])) {
+                if (isset($props['property']) && stripos($props['property'],$ignoreThisPrefix) !== false) {
                     if (isset($props['value']) && count ($props['value']) > 0) {
                         if ( !is_array ($props['value'])) {
                             $props['value'] = [$props['value']];
