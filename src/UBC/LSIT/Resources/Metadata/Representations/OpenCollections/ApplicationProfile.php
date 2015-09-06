@@ -929,33 +929,37 @@
             ];
 
             foreach ($data as $k => $props) {
-                if (isset($props['property']) && stripos($props['property'],$ignoreThisPrefix) === false) {
-                    if (isset($props['value']) && count ($props['value']) > 0) {
-                        if ( !is_array ($props['value'])) {
-                            $props['value'] = [$props['value']];
-                        }
-                        if(in_array($props['property'],$uniqueFields,true)){
-                            $ret[$props['property']] = [
-                                'label' => $props['label'],
-                                'value' => array_pop($props['value']),
-                                'attrs' => [
-                                    'lang' => $props['language']
-                                ]
-                            ];
-                        } else {
-                            foreach ($props['value'] as $value) {
-                                $ret[$props['property']][] = [
+                if (stripos($k,$ignoreThisPrefix) === false) {
+                    if (isset($props['property'])) {
+                        if (isset($props['value']) && count ($props['value']) > 0) {
+                            if ( !is_array ($props['value'])) {
+                                $props['value'] = [$props['value']];
+                            }
+                            if(in_array($props['property'],$uniqueFields,true)){
+                                $ret[$props['property']] = [
                                     'label' => $props['label'],
-                                    'value' => $value,
+                                    'value' => array_pop($props['value']),
                                     'attrs' => [
                                         'lang' => $props['language']
                                     ]
                                 ];
+                            } else {
+                                foreach ($props['value'] as $value) {
+                                    $ret[$props['property']][] = [
+                                        'label' => $props['label'],
+                                        'value' => $value,
+                                        'attrs' => [
+                                            'lang' => $props['language']
+                                        ]
+                                    ];
+                                }
                             }
                         }
+                    } else {
+                        error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
                     }
                 } else {
-                    error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
+                    error_log ("Ignoring controlled key: {$k} | This is not part of the MAP");
                 }
             }
 
