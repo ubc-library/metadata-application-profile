@@ -898,6 +898,75 @@
             return $data;
         }
 
+        /**
+         * @param array     $data
+         * @param string    $ignoreThisPrefix   a prefix that can be put on properties to not check them as stubs
+         *
+         * @return array
+         *
+         *   $data Looks Like
+         *
+         *  "unused_nick": {
+         *      "property": "Title",
+         *      "language": "en",
+         *      "label"   : "Title \u540d\u79f0\uff08\u30ed\u30fc\u30de\u5b57\uff09",
+         *      "value": [
+         *          "01 bankoku_chiri_cover_0001"
+         *      ]
+         *  }
+         *
+         */
+        public function generateMetadataStubs(array $data, $ignoreThisPrefix = 'internal'){
+            $ret = [];
+
+            $uniqueFields = [
+                  'Source'
+                , 'CatalogueRecord'
+                , 'Rights'
+                , 'DateAvailable'
+            ];
+
+            foreach ($data as $k => $props) {
+                if (stripos($k,$ignoreThisPrefix) === false) {
+                    if (isset($props['property'])) {
+                        if (isset($props['value']) && count ($props['value']) > 0) {
+                            if ( !is_array ($props['value'])) {
+                                $props['value'] = [$props['value']];
+                            }
+                            if(in_array($props['property'],$uniqueFields,true)){
+                                $ret[$props['property']] = [
+                                    'label' => $props['label'],
+                                    'value' => array_pop($props['value']),
+                                    'attrs' => [
+                                        'lang' => $props['language']
+                                    ]
+                                ];
+                            } else {
+                                foreach ($props['value'] as $value) {
+                                    $ret[$props['property']][] = [
+                                        'label' => $props['label'],
+                                        'value' => $value,
+                                        'attrs' => [
+                                            'lang' => $props['language']
+                                        ]
+                                    ];
+                                }
+                            }
+                        }
+                    } else {
+                        error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
+                    }
+                }
+                /*
+                else {
+                    error_log ("Ignoring controlled key: {$k} | This is not part of the MAP");
+                }
+                */
+            }
+
+            return $ret;
+        }
+
 
 
 
