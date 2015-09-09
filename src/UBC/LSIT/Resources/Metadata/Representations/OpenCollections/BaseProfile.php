@@ -128,6 +128,7 @@
 
         protected function getClasspath ($name)
         {
+            /*
             $reflect = new \ReflectionClass($this);
             $traits = $reflect->getTraits ();
 
@@ -149,8 +150,8 @@
                         return $class;
                     }
                 }
-            }
-            return '[class_not_currently_mapped]';
+            }*/
+            return $this->getClassmap ($name);
         }
 
         protected function getClassmap ($name)
@@ -183,7 +184,7 @@
                     }
                 }
             }
-            return '[class_not_currently_mapped]';
+            return "unmapped:{$name}";
         }
 
 
