@@ -176,9 +176,11 @@
             error_log("Getting classmap for: {$name}");
             $reflect = new \ReflectionClass($this);
             $traits = $reflect->getTraits ();
+            error_log('Traits: ' . json_encode($traits));
 
             foreach ($traits as $k => $trait) {
                 $props = $trait->getProperties ();
+                error_log('Trait Props: ' . json_encode($props));
                 foreach ($props as $prop) {
                     error_log("{$prop->name} |  {$name}");
                     if (trim("{$prop->name}") === trim("{$name}")) {
