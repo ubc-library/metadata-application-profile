@@ -887,14 +887,12 @@
         private function getSearchFields ()
         {
             $data = [];
-            $labels = [];
             foreach ($this as $k => $property) {
                 $data[$k][] = [
-                      'label'  => $labels[$k] ?: $k
+                      'label'  => LabelMapper::getPropertyLabel($k)
                     , 'sysmap' => SearchMapper::getSystemField ($k)
                 ];
             }
-
             return $data;
         }
 
