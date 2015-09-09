@@ -31,6 +31,51 @@
         private $version = 1;
 
         /**
+         * @var AbstractProperty
+         */
+        protected $SortDate;
+
+        /**
+         * @param bool|false $date
+         */
+        public function __construct ($date = false)
+        {
+
+            if ($date === false) {
+                $this->SortDate = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
+            } else {
+                $this->SortDate = new Schemas\DC\Properties\Date($date, 'Sort Date');
+            }
+            $this->SortDate->setAttribute ('lang', 'en');
+            $this->SortDate->setAttribute ('classmap', $this->getClassmap ('SortDate'));
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getSortDate ()
+        {
+            return $this->SortDate;
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setSortDate ($value = false, $label = false, $attributes = [])
+        {
+            if ($value === false) {
+                $obj = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
+            } else {
+                $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
+            }
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
+            $obj->setAttributes ($attributes);
+            $this->SortDate = $obj;
+        }
+        /**
          * @param bool|true $verbose
          *
          * @return string
@@ -741,13 +786,17 @@
         }
 
         /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
+         * @param bool|string $v
+         * @param bool|string $t
+         * @param string $l
          */
-        public function setFullText ($value, $label = false, array $attributes = []) {
-
-            $this->_setProperty(new Schemas\DCTerms\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setFullText ($v = false, $t = false, $l = 'FullText')
+        {
+            $obj = new Schemas\OpenAnnotation\Annotation($v, $t, $l);
+            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['classmap'] = $this->getClassmap ('FullText');
+            $obj->setAttributes ($attributes);
+            $this->FullText = $obj;
         }
 
         /**

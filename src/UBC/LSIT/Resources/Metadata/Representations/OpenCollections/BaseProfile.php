@@ -59,12 +59,6 @@
 
 
         /**
-         * @var AbstractProperty
-         */
-        protected $SortDate;
-
-
-        /**
          * @param \OpenLibrary\Metadata\Schemas\AbstractProperty $obj
          * @param                                                $propertyName
          * @param array                                          $attributes
@@ -84,56 +78,6 @@
             }
         }
 
-        public function setFullText ($v = false, $t = false, $l = 'FullText')
-        {
-            $obj = new Schemas\OpenAnnotation\Annotation($v, $t, $l);
-            $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ('FullText');
-            $obj->setAttributes ($attributes);
-            $this->FullText = $obj;
-        }
-
-
-        /**
-         * @param bool|false $date
-         */
-        public function __construct ($date = false)
-        {
-
-            if ($date === false) {
-                $this->SortDate = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
-            } else {
-                $this->SortDate = new Schemas\DC\Properties\Date($date, 'Sort Date');
-            }
-            $this->SortDate->setAttribute ('lang', 'en');
-            $this->SortDate->setAttribute ('classmap', $this->getClassmap ('SortDate'));
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getSortDate ()
-        {
-            return $this->SortDate;
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setSortDate ($value = false, $label = false, $attributes = [])
-        {
-            if ($value === false) {
-                $obj = new Schemas\DC\Properties\Date(time (), 'Fake Sort Date');
-            } else {
-                $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
-            }
-            $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
-            $obj->setAttributes ($attributes);
-            $this->SortDate = $obj;
-        }
 
         protected function getNamespace ($obj)
         {
