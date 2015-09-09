@@ -174,10 +174,10 @@
         protected function getClassmap ($name)
         {
             error_log("Getting classmap for: {$name}");
-            $t = new \ReflectionClass($this);
-            $reflect = new \ReflectionClass($t->getParentClass());
+            $reflect = new \ReflectionClass($this);
             $traits = $reflect->getTraits ();
             error_log('Traits: ' . json_encode($traits));
+            error_log("Reflecting in {$reflect->getName()}");
 
             foreach ($traits as $k => $trait) {
                 $props = $trait->getProperties ();
