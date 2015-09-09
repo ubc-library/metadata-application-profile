@@ -173,7 +173,7 @@
 
         protected function getClassmap ($name)
         {
-            $reflect = new \ReflectionClass($this);
+            $reflect = new \ReflectionClass(new self());
             $traits = $reflect->getTraits ();
 
             foreach ($traits as $k => $trait) {
