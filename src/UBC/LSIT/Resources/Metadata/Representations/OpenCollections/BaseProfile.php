@@ -174,7 +174,7 @@
         protected function getClassmap ($name)
         {
             error_log("Getting classmap for: {$name}");
-            $reflect = new \ReflectionClass($this);
+            $reflect = new \ReflectionClass(new BaseProfile());
             $traits = $reflect->getTraits ();
             error_log('Traits: ' . json_encode($traits));
             error_log("Reflecting in {$reflect->getName()}");
