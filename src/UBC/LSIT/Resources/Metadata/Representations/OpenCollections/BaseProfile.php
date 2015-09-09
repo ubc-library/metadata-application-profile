@@ -173,7 +173,13 @@
                         $class = str_ireplace ("resources\\", '', $class);
                         $class = str_ireplace ("schemas\\", '', $class);
                         $class = str_ireplace ("dpla\\", 'dpla:', $class);
+                        $class = str_ireplace ("edm\\", 'edm:', $class);
+                        $class = str_ireplace ("fi\\", 'fi:', $class);
+                        $class = str_ireplace ("oa\\", 'oa:', $class);
                         $class = str_ireplace ("opencollections\\", 'oc:', $class);
+                        $class = str_ireplace ("ore\\", 'ore:', $class);
+                        $class = str_ireplace ("skos\\", 'skos:', $class);
+                        $class = str_ireplace ("vivo\\", 'vivo:', $class);
                         return $class;
                     }
                 }
