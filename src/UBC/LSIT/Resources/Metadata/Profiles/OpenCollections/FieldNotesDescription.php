@@ -6,7 +6,7 @@
      * Time: 18:40
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
@@ -16,12 +16,8 @@
      *
      * @package UBC\LSIT\Resources\Metadata\Representations\OpenCollections\Enrichments
      */
-    trait FieldNotesDescription {
-
-        /**
-         * @var AbstractProperty
-         */
-        protected $Bottom;
+    trait FieldNotesDescription
+    {
 
         /**
          * @var AbstractProperty
@@ -32,21 +28,6 @@
          * @var AbstractProperty
          */
         protected $Current;
-
-        /**
-         * @var AbstractProperty
-         */
-        protected $DepthOfCapture;
-
-        /**
-         * @var AbstractProperty
-         */
-        protected $DepthOfWater;
-
-        /**
-         * @var AbstractProperty
-         */
-        protected $DistanceOffshore;
 
         /**
          * @var AbstractProperty
@@ -71,11 +52,6 @@
         /**
          * @var AbstractProperty
          */
-        protected $Temperature;
-
-        /**
-         * @var AbstractProperty
-         */
         protected $Tide;
 
         /**
@@ -96,14 +72,6 @@
         /**
          * @return AbstractProperty
          */
-        public function getBottom ()
-        {
-            return $this->Bottom;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
         public function getCover ()
         {
             return $this->Cover;
@@ -115,30 +83,6 @@
         public function getCurrent ()
         {
             return $this->Current;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getDepthOfCapture ()
-        {
-            return $this->DepthOfCapture;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getDepthOfWater ()
-        {
-            return $this->DepthOfWater;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getDistanceOffshore ()
-        {
-            return $this->DistanceOffshore;
         }
 
         /**
@@ -176,14 +120,6 @@
         /**
          * @return AbstractProperty
          */
-        public function getTemperature ()
-        {
-            return $this->Temperature;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
         public function getTide ()
         {
             return $this->Tide;
@@ -212,6 +148,5 @@
         {
             return $this->Watershed;
         }
-
 
     }

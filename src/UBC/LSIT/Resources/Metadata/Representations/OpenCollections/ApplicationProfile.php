@@ -12,9 +12,9 @@
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
-    use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
-    use UBC\LSIT\Resources\Metadata\Schemas\ORE;
-    use UBC\LSIT\Resources\Metadata\Schemas\VIVO;
+    use UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
+    use UBC\LSIT\Resources\Metadata\Profiles\ORE;
+    use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
     use Sabre\XML\Writer;
 
     /**

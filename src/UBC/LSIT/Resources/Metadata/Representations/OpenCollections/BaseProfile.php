@@ -11,9 +11,14 @@
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
-    use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
-    use UBC\LSIT\Resources\Metadata\Schemas\ORE;
-    use UBC\LSIT\Resources\Metadata\Schemas\VIVO;
+    use UBC\LSIT\Resources\Metadata\Profiles\DPLA;
+    use UBC\LSIT\Resources\Metadata\Profiles\EDM;
+    use UBC\LSIT\Resources\Metadata\Profiles\FI;
+    use UBC\LSIT\Resources\Metadata\Profiles\OA;
+    use UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
+    use UBC\LSIT\Resources\Metadata\Profiles\ORE;
+    use UBC\LSIT\Resources\Metadata\Profiles\SKOS;
+    use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
     use Sabre\XML\Writer;
 
     /**
@@ -27,7 +32,15 @@
     class BaseProfile
     {
 
-        use Profiles\DPLA\SourceResource;
+        use DPLA\SourceResource;
+        use EDM\Place;
+        use EDM\ProvidedCHO;
+        use EDM\WebResource;
+        use FI\AqRes;
+        use FI\DepthBehav;
+        use FI\FishingGround;
+        use FI\HabitatBio;
+        use OA\Annotation;
         use OpenCollections\ArtifactDescription;
         use OpenCollections\DataDescription;
         use OpenCollections\DigitalPreservation;
@@ -38,16 +51,20 @@
         use OpenCollections\SourceResource;
         use OpenCollections\ThesisDescription;
         use OpenCollections\UnmappedDescription;
+        use OpenCollections\WebResource;
+        use ORE\Aggregation;
+        use SKOS\Concept;
+        use VIVO\DateTimeValue;
         use VIVO\ThesisDegree;
         use VIVO\EducationalProcess;
-        use ORE\Aggregation;
+
 
         /**
          * @var AbstractProperty
          */
         protected $SortDate;
 
-        protected $FullText;
+
 
 
         public function setFullText ($v = false, $t = false, $l = 'FullText')
@@ -57,14 +74,6 @@
             $attributes['classmap'] = $this->getClassmap ('FullText');
             $obj->setAttributes ($attributes);
             $this->FullText = $obj;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getFullText ()
-        {
-            return $this->FullText;
         }
 
 

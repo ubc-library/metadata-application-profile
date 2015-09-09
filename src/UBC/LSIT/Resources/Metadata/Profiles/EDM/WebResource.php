@@ -1,16 +1,16 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: hajime
-     * Date: 10 Aug 15
-     * Time: 23:24
-     */
-    
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    namespace UBC\LSIT\Resources\Metadata\Profiles\EDM;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    trait SourceResource {
+    /**
+     * Class WebResource
+     *
+     * THIS IS THE COMPLETE UNIT - V1 SPEC AS OF 08SEP2015
+     */
+    trait WebResource
+    {
 
         /**
          * @var AbstractProperty
@@ -20,48 +20,47 @@
         /**
          * @var AbstractProperty
          */
-        protected $DateCreated;
+        protected $FileFormat;
 
         /**
          * @var AbstractProperty
          */
-        protected $DateIssued;
+        protected $IsShownAt;
 
         /**
          * @var AbstractProperty
          */
-        protected $Source;
+        protected $Rights;
 
         /**
          * @return AbstractProperty
          */
-        public function getDateAvailable () {
-
+        public function getDateAvailable ()
+        {
             return $this->DateAvailable;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getDateCreated () {
-
-            return $this->DateCreated;
+        public function getFileFormat ()
+        {
+            return $this->FileFormat;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getDateIssued () {
-
-            return $this->DateIssued;
+        public function getIsShownAt ()
+        {
+            return $this->IsShownAt;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getSource () {
-
-            return $this->Source;
+        public function getRights ()
+        {
+            return $this->Rights;
         }
-
     }

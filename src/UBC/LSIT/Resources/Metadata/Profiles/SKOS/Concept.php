@@ -6,22 +6,22 @@
      * Time: 23:29
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\SKOS;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    trait ArtifactDescription {
+    trait Concept {
 
         /**
          * @var AbstractProperty
          */
-        protected $Reference;
+        protected $Notes;
 
         /**
          * @return AbstractProperty
          */
-        public function getReference () {
+        public function getNotes () {
 
-            return $this->Reference;
+            return $this->Notes;
         }
     }

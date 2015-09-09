@@ -1,5 +1,5 @@
 <?php
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
@@ -18,12 +18,12 @@
         /**
          * @var AbstractProperty
          */
-        protected $CollectorNumber;
+        protected $CollectedBy;
 
         /**
          * @var AbstractProperty
          */
-        protected $CollectedBy;
+        protected $CollectorNumber;
 
         /**
          * @var AbstractProperty

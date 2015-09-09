@@ -3,39 +3,39 @@
      * Created by PhpStorm.
      * User: hajime
      * Date: 10 Aug 15
-     * Time: 23:23
+     * Time: 23:24
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    trait DigitalPreservation {
+    trait MediaDescription {
 
         /**
          * @var AbstractProperty
          */
-        protected $AIPUUID;
+        protected $Credits;
 
         /**
          * @var AbstractProperty
          */
-        protected $FileUUID;
+        protected $Episode;
 
         /**
          * @return AbstractProperty
          */
-        public function getAIPUUID () {
+        public function getCredits () {
 
-            return $this->AIPUUID;
+            return $this->Credits;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getFileUUID () {
+        public function getEpisode () {
 
-            return $this->FileUUID;
+            return $this->Episode;
         }
 
     }

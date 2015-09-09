@@ -5,11 +5,11 @@
      * Date: 10 Aug 15
      * Time: 23:23
      */
-    
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
-    
+
     trait GeographicDescription {
 
         /**
@@ -25,16 +25,16 @@
         /**
          * @return AbstractProperty
          */
-        public function getCountry () {
-
+        public function getCountry ()
+        {
             return $this->Country;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getProvinceOrState () {
-
+        public function getProvinceOrState ()
+        {
             return $this->ProvinceOrState;
         }
 

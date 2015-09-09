@@ -6,7 +6,7 @@
      * Time: 2:59 PM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\VIVO;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\VIVO;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
@@ -17,4 +17,13 @@
          * @var AbstractProperty
          */
         protected $Affiliation;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getAffiliation ()
+        {
+            return $this->Affiliation;
+        }
+
     }

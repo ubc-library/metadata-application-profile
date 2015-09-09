@@ -6,13 +6,11 @@
      * Time: 23:24
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
     trait PublicationDescription {
-
-
 
         /**
          * @var AbstractProperty
@@ -63,7 +61,6 @@
          * @var AbstractProperty
          */
         protected $Series;
-
 
         /**
          * @var AbstractProperty

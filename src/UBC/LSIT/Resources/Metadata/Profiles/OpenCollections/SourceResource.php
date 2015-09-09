@@ -3,52 +3,52 @@
      * Created by PhpStorm.
      * User: hajime
      * Date: 10 Aug 15
-     * Time: 23:55
+     * Time: 23:24
      */
-    
-    namespace UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+
+    namespace UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
-    trait ThesisDescription {
+    trait SourceResource {
 
         /**
          * @var AbstractProperty
          */
-        protected $Campus;
+        protected $DateCreated;
 
         /**
          * @var AbstractProperty
          */
-        protected $DegreeGrantor;
+        protected $DateIssued;
 
         /**
          * @var AbstractProperty
          */
-        protected $Program;
+        protected $Source;
 
         /**
          * @return AbstractProperty
          */
-        public function getCampus () {
+        public function getDateCreated () {
 
-            return $this->Campus;
+            return $this->DateCreated;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getDegreeGrantor () {
+        public function getDateIssued () {
 
-            return $this->DegreeGrantor;
+            return $this->DateIssued;
         }
 
         /**
          * @return AbstractProperty
          */
-        public function getProgram () {
+        public function getSource () {
 
-            return $this->Program;
+            return $this->Source;
         }
 
     }

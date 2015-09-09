@@ -6,7 +6,7 @@
      * Time: 2:59 PM
      */
 
-    namespace UBC\LSIT\Resources\Metadata\Schemas\VIVO;
+    namespace UBC\LSIT\Resources\Metadata\Profiles\VIVO;
 
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
@@ -17,4 +17,14 @@
          * @var AbstractProperty
          */
         protected $Degree;
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getDegree ()
+        {
+            return $this->Degree;
+        }
+
+
     }
