@@ -161,7 +161,8 @@
             foreach ($traits as $k => $trait) {
                 $props = $trait->getProperties ();
                 foreach ($props as $prop) {
-                    if (trim($prop->name) == trim($name)) {
+                    error_log("{$prop->name} |  {$name}");
+                    if (trim("{$prop->name}") === trim("{$name}")) {
                         $class = $prop->class;
                         $class = str_ireplace ("openlibrary\\", '', $class);
                         $class = str_ireplace ("metadata\\", '', $class);
