@@ -66,7 +66,7 @@
          */
         protected function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false) {
 
-            $attributes['ns']       = $this->getNamespace($obj);
+            $attributes['ns']       = $obj->getUri();
             $attributes['classmap'] = $this->getClassmap($propertyName);
             $attributes['property'] = $obj->getName();//was ocmap
             $obj->setAttributes($attributes);
