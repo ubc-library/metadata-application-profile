@@ -11,10 +11,10 @@
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
 
-    class EducationalProcess
+    trait EducationalProcess
     {
         /**
          * @var AbstractProperty
          */
-        public $Affiliation;
+        protected $Affiliation;
     }

@@ -11,10 +11,10 @@
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
 
-    class ThesisDegree
+    trait ThesisDegree
     {
         /**
          * @var AbstractProperty
          */
-        public $Degree;
+        protected $Degree;
     }

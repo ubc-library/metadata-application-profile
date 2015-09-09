@@ -5,7 +5,7 @@
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
 
 
-    class Aggregation
+    trait Aggregation
     {
         /**
          * @var AbstractProperty
@@ -22,11 +22,4 @@
          */
         protected $DigitalResourceOriginalRecord; // ???
 
-        /**
-         * @return AbstractProperty
-         */
-        public function getAggregatedSourceRepository()
-        {
-            return $this->AggregatedSourceRepository;
-        }
     }

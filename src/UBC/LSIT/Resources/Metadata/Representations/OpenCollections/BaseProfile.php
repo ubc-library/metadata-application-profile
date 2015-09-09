@@ -12,6 +12,8 @@
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Schemas\OpenCollections;
+    use UBC\LSIT\Resources\Metadata\Schemas\ORE;
+    use UBC\LSIT\Resources\Metadata\Schemas\VIVO;
     use Sabre\XML\Writer;
 
     /**
@@ -36,6 +38,7 @@
         use OpenCollections\SourceResource;
         use OpenCollections\ThesisDescription;
         use OpenCollections\UnmappedDescription;
+        use VIVO\ThesisDegree;
 
         /**
          * @var AbstractProperty
@@ -61,8 +64,6 @@
         {
             return $this->FullText;
         }
-
-
 
 
         /**
@@ -152,16 +153,16 @@
                 foreach ($props as $prop) {
                     if ($prop->name === $name) {
                         $class = $prop->class;
-                        $class = str_ireplace ("openlibrary\\", "", $class);
-                        $class = str_ireplace ("metadata\\", "", $class);
-                        $class = str_ireplace ("profiles\\", "", $class);
-                        $class = str_ireplace ("properties\\", "", $class);
-                        $class = str_ireplace ("ubc\\", "", $class);
-                        $class = str_ireplace ("lsit\\", "", $class);
-                        $class = str_ireplace ("resources\\", "", $class);
-                        $class = str_ireplace ("schemas\\", "", $class);
-                        $class = str_ireplace ("dpla\\", "dpla:", $class);
-                        $class = str_ireplace ("opencollections\\", "oc:", $class);
+                        $class = str_ireplace ("openlibrary\\", '', $class);
+                        $class = str_ireplace ("metadata\\", '', $class);
+                        $class = str_ireplace ("profiles\\", '', $class);
+                        $class = str_ireplace ("properties\\", '', $class);
+                        $class = str_ireplace ("ubc\\", '', $class);
+                        $class = str_ireplace ("lsit\\", '', $class);
+                        $class = str_ireplace ("resources\\", '', $class);
+                        $class = str_ireplace ("schemas\\", '', $class);
+                        $class = str_ireplace ("dpla\\", 'dpla:', $class);
+                        $class = str_ireplace ("opencollections\\", 'oc:', $class);
                         return $class;
                     }
                 }
@@ -176,10 +177,11 @@
             $ret = $this->getAll ($verbose);
 
             foreach ($ret as $k => &$property) {
-                if (is_array ($property) && count (array_filter ($property)) == 0) {
+                if (is_array ($property) && count (array_filter ($property)) === 0) {
                     unset ($ret[$k]);
                 }
             }
+            unset($property);
 
             $xml = [];
 
@@ -194,8 +196,8 @@
             foreach ($ret as $k => &$property) {
                 if ( !isset($property['ocmap'])) {
                     foreach ($property as $_k => &$_property) {
-                        $ns = isset($_property['ns']) ? $property['ns'] : "";
-                        $tg = explode (":", $_property['ocmap']);
+                        $ns = isset($_property['ns']) ? $property['ns'] : '';
+                        $tg = explode (':', $_property['ocmap']);
                         $tg = array_pop ($tg);
 
                         $attrs = [
@@ -208,9 +210,10 @@
                             , 'value'      => is_object ($_property['value']) ? $_property['value']->getValue () : $_property['value']
                         ];
                     }
+                    unset($_property);
                 } else {
-                    $ns = isset($property['ns']) ? $property['ns'] : "";
-                    $tg = explode (":", $property['ocmap']);
+                    $ns = isset($property['ns']) ? $property['ns'] : '';
+                    $tg = explode (':', $property['ocmap']);
                     $tg = array_pop ($tg);
 
                     $attrs = [
@@ -224,6 +227,7 @@
                     ];
                 }
             }
+            unset($property);
 
             $xmlWriter->write ($xml);
             $xmlWriter->endElement ();
