@@ -16,7 +16,7 @@
         /**
          * @var AbstractProperty
          */
-        public $GraduationDate;
+        protected $GraduationDate;
 
         /**
          * @return AbstractProperty

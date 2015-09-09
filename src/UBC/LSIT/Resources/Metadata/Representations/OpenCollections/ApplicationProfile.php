@@ -8,14 +8,12 @@
 
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
-
     use OpenLibrary\Metadata\Schemas;
     use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
     use UBC\LSIT\Resources\Metadata\Profiles\ORE;
     use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
-    use Sabre\XML\Writer;
 
     /**
      * Class ApplicationProfile
@@ -25,152 +23,19 @@
      * kept in this file, especially as they may be system generated if not
      * found in the source resource
      */
-    class ApplicationProfile extends BaseProfile
-    {
+    class ApplicationProfile extends BaseProfile {
+
         /**
          * @var int
          */
         private $version = 1;
 
         /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setAlternateTitle ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCollection ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setContributor ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        // TODO SKK FROM HERE NOT DONE PROPERLY, CHECK THE OBJ CLASSTYPE
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCreator ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Creator ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDate ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DC\Properties\Date ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDescription ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Description ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setExtent ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Extent ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setGenre ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\EDM\Properties\HasType ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setProjectWebsite ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Relation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setPublisher ($value, $label = false, array $attributes = [])
-        {
-
-            $this->_setProperty (new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setSubject ($value, $label = false, array $attributes = [])
-        {
-
-            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setTitle ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Title ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setType ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Type ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
          * @param bool|true $verbose
          *
          * @return string
          */
+        /*
         public function generateSchemaDefinitionAsXML ($verbose = true)
         {
             $ret = $this->getAll ($verbose);
@@ -230,21 +95,22 @@
 
             return $xmlWriter->outputMemory ();
         }
+        */
 
         /**
          * @param bool|true $verbose
          *
          * @return array
          */
-        public function generateSchemaDefinitionAsArray ($verbose = true)
-        {
-            return $this->getAll ($verbose);
+        public function generateSchemaDefinitionAsArray ($verbose = true) {
+
+            return $this->getAll($verbose);
         }
 
         /** @deprecated */
-        public function generateSchemaDefinitionAsJSON ($verbose = true)
-        {
-            return $this->getAll ($verbose);
+        public function generateSchemaDefinitionAsJSON ($verbose = true) {
+
+            return $this->getAll($verbose);
         }
 
         /**
@@ -253,15 +119,16 @@
          * @param array                                          $attributes
          * @param bool|false                                     $isArray
          */
-        private function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false)
-        {
-            $attributes['ns'] = $this->getNamespace ($obj);
-            $attributes['classmap'] = $this->getClassmap ($propertyName) ?: '[class_not_currently_mapped]';
-            $attributes['property'] = $obj->getName ();//was ocmap
-            $obj->setAttributes ($attributes);
-            if ($isArray) {
+        public function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false) {
+
+            $attributes['ns']       = $this->getNamespace($obj);
+            $attributes['classmap'] = $this->getClassmap($propertyName) ?: '[class_not_currently_mapped]';
+            $attributes['property'] = $obj->getName();//was ocmap
+            $obj->setAttributes($attributes);
+            if($isArray) {
                 $this->{$propertyName}[] = $obj;
-            } else {
+            }
+            else {
                 $this->{$propertyName} = $obj;
             }
         }
@@ -271,37 +138,44 @@
          *
          * @return array
          */
-        private function getAll ($verbose)
-        {
-            if ($verbose) {
-                return $this->getAllVerbosely ();
-            } else {
+        private function getAll ($verbose) {
+
+            if($verbose) {
+                return $this->getAllVerbosely();
+            }
+            else {
                 $data = [];
                 foreach ($this as $k => $v) {
-                    if (isset($v) && !is_null ($v)) {
+                    if(isset($v) && !is_null($v)) {
                         $cmd = "get{$k}";
-                        if (method_exists ($this, $cmd)) {
+                        if(method_exists($this, $cmd)) {
                             $v = $this->{$cmd}();
-                            if (is_array ($v)) {
+                            if(is_array($v)) {
                                 foreach ($v as &$_v) {
-                                    $data[$k][] = [
-                                        'label'   => $_v->getLabel ()
-                                        , 'value' => $_v->getValue ()
-                                        , 'attrs' => $_v->getAttributes ()
+                                    $data[ $k ][] = [
+                                        'label' => $_v->getLabel()
+                                        ,
+                                        'value' => $_v->getValue()
+                                        ,
+                                        'attrs' => $_v->getAttributes()
                                     ];
                                 }
-                            } else {
-                                $data[$k][] = [
-                                    'label'   => $v->getLabel ()
-                                    , 'value' => $v->getValue ()
-                                    , 'attrs' => $v->getAttributes ()
+                            }
+                            else {
+                                $data[ $k ][] = [
+                                    'label' => $v->getLabel()
+                                    ,
+                                    'value' => $v->getValue()
+                                    ,
+                                    'attrs' => $v->getAttributes()
                                 ];
 
                             }
                         }
 
-                    } else {
-                        unset($data[$k]);
+                    }
+                    else {
+                        unset($data[ $k ]);
                     }
                 }
 
@@ -312,39 +186,49 @@
         /**
          * @return array
          */
-        private function getAllVerbosely ()
-        {
+        private function getAllVerbosely () {
+
             $data = [];
 
             foreach ($this as $k => $v) {
-                if (isset($v) && !is_null ($v)) {
+                if(isset($v) && !is_null($v)) {
                     $cmd = "get{$k}";
-                    if (method_exists ($this, $cmd)) {
+                    if(method_exists($this, $cmd)) {
                         $v = $this->{$cmd}();
-                        if (is_array ($v)) {
+                        if(is_array($v)) {
                             foreach ($v as &$_v) {
-                                $data[$k][] = [
-                                    'label'     => $_v->getLabel ()
-                                    , 'value'   => $_v->getValue ()
-                                    , 'attrs'   => $_v->getAttributes ()
-                                    , 'iri'     => $_v->getUri ()
-                                    , 'explain' => $_v->getDescription ()
+                                $data[ $k ][] = [
+                                    'label'   => $_v->getLabel()
+                                    ,
+                                    'value'   => $_v->getValue()
+                                    ,
+                                    'attrs'   => $_v->getAttributes()
+                                    ,
+                                    'iri'     => $_v->getUri()
+                                    ,
+                                    'explain' => $_v->getDescription()
                                 ];
                             }
-                        } else {
-                            $data[$k][] = [
-                                'label'     => $v->getLabel ()
-                                , 'value'   => $v->getValue ()
-                                , 'attrs'   => $v->getAttributes ()
-                                , 'iri'     => $v->getUri ()
-                                , 'explain' => $v->getDescription ()
+                        }
+                        else {
+                            $data[ $k ][] = [
+                                'label'   => $v->getLabel()
+                                ,
+                                'value'   => $v->getValue()
+                                ,
+                                'attrs'   => $v->getAttributes()
+                                ,
+                                'iri'     => $v->getUri()
+                                ,
+                                'explain' => $v->getDescription()
                             ];
 
                         }
                     }
 
-                } else {
-                    unset($data[$k]);
+                }
+                else {
+                    unset($data[ $k ]);
                 }
             }
 
@@ -352,553 +236,33 @@
         }
 
         /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
+         * @return array
          */
-        public function setProgram ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
+        public function generateSchemaSearchMapAsArray () {
 
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDegree ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDegreeGrantor ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCampus ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDateIssued ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDateCreated ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setURI ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setSeries ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setScholarlyLevel ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setRightsURI ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setPersonOrCorporation ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setPeerReviewStatus ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setGrantFundingAgency ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setEdition ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCopyrightHolder ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setContents ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCitation ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCategory ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setEpisode ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCredits ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setProvinceOrState ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCountry ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setWatershed ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setWater ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setVegetation ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setTide ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setTemperature ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setStreamWidth ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setShore ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setOriginalPreserved ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setMethodOfCapture ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setMap ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDistanceOffshore ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDepthOfWater ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDepthOfCapture ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCurrent ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCover ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCollectorNumber ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCollectedBy ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCatalogueNumber ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setBottom ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setReference ($value, $label = false, array $attributes = [])
-        {
-            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setSource ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Source ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setFileFormat ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Format ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setCatalogueRecord ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\IsReferencedBy ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setRights ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Rights ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setDateAvailable ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Available ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
-        }
-
-        /**
-         * @param            $value
-         * @param bool|false $label
-         * @param array      $attributes
-         */
-        public function setAnnotation ($value, $label = false, array $attributes = [])
-        {
-            $this->_setProperty (new Schemas\OpenAnnotation\Annotation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
+            return $this->getSearchFields();
         }
 
         /**
          * @return array
          */
-        public function generateSchemaSearchMapAsArray ()
-        {
-            return $this->getSearchFields ();
-        }
+        private function getSearchFields () {
 
-        /**
-         * @return array
-         */
-        private function getSearchFields ()
-        {
             $data = [];
             foreach ($this as $k => $property) {
-                $data[$k][] = [
-                      'label'  => LabelMapper::getPropertyLabel($k)
-                    , 'sysmap' => SearchMapper::getSystemField ($k)
+                $data[ $k ][] = [
+                    'label'  => LabelMapper::getPropertyLabel($k)
+                    ,
+                    'sysmap' => SearchMapper::getSystemField($k)
                 ];
             }
+
             return $data;
         }
 
         /**
-         * @param array     $data
-         * @param string    $ignoreThisPrefix   a prefix that can be put on properties to not check them as stubs
+         * @param array  $data
+         * @param string $ignoreThisPrefix a prefix that can be put on properties to not check them as stubs
          *
          * @return array
          *
@@ -914,34 +278,39 @@
          *  }
          *
          */
-        public function generateMetadataStubs(array $data, $ignoreThisPrefix = 'internal'){
+        public function generateMetadataStubs (array $data, $ignoreThisPrefix = 'internal') {
+
             $ret = [];
 
             $uniqueFields = [
-                  'Source'
-                , 'CatalogueRecord'
-                , 'Rights'
-                , 'DateAvailable'
+                'Source'
+                ,
+                'CatalogueRecord'
+                ,
+                'Rights'
+                ,
+                'DateAvailable'
             ];
 
             foreach ($data as $k => $props) {
-                if (stripos($k,$ignoreThisPrefix) === false) {
-                    if (isset($props['property'])) {
-                        if (isset($props['value']) && count ($props['value']) > 0) {
-                            if ( !is_array ($props['value'])) {
+                if(stripos($k, $ignoreThisPrefix) === false) {
+                    if(isset($props['property'])) {
+                        if(isset($props['value']) && count($props['value']) > 0) {
+                            if(!is_array($props['value'])) {
                                 $props['value'] = [$props['value']];
                             }
-                            if(in_array($props['property'],$uniqueFields,true)){
-                                $ret[$props['property']] = [
+                            if(in_array($props['property'], $uniqueFields, true)) {
+                                $ret[ $props['property'] ] = [
                                     'label' => $props['label'],
                                     'value' => array_pop($props['value']),
                                     'attrs' => [
                                         'lang' => $props['language']
                                     ]
                                 ];
-                            } else {
+                            }
+                            else {
                                 foreach ($props['value'] as $value) {
-                                    $ret[$props['property']][] = [
+                                    $ret[ $props['property'] ][] = [
                                         'label' => $props['label'],
                                         'value' => $value,
                                         'attrs' => [
@@ -951,22 +320,914 @@
                                 }
                             }
                         }
-                    } else {
-                        error_log ("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
+                    }
+                    else {
+                        error_log("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
                     }
                 }
-                /*
-                else {
-                    error_log ("Ignoring controlled key: {$k} | This is not part of the MAP");
-                }
-                */
             }
 
             return $ret;
         }
 
+        # Profile Properties Below
+        # ------------------------
 
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setAffiliation ($value, $label = false, array $attributes = []) {
 
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
 
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setAggregatedSourceRepository ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setAIPUUID ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setAlternateTitle ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setAnnotation ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\OpenAnnotation\Annotation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setBottom ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCampus ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCatalogueNumber ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCatalogueRecord ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\IsReferencedBy ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCategory ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCitation ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCollectedBy ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCollection ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCollectionDescription ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCollectionTitle ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCollectorNumber ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setContents ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setContributor ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCopyrightHolder ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCountry ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCover ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        // TODO SKK FROM HERE NOT DONE PROPERLY, CHECK THE OBJ CLASSTYPE
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCreator ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Creator ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCredits ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setCurrent ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDate ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DC\Properties\Date ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDateAvailable ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Available ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDateCreated ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDateIssued ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDegree ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDegreeGrantor ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDepthOfCapture ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDepthOfWater ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDescription ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Description ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDigitalResourceOriginalRecord ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setDistanceOffshore ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setEdition ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setEpisode ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setExtent ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Extent ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setFileFormat ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setFileUUID ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setFullText ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setGenre ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\EDM\Properties\HasType ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setGeographicLocation ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\EDM\Properties\HasType ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setGraduationDate ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\EDM\Properties\HasType ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setGrantFundingAgency ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setHasView ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setIdentifier ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setIsShownAt ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setLanguage ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setLatitude ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setLicense ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setLocality ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setLongitude ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setMap ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setMethodOfCapture ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setNotes ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setOriginalPreserved ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setPeerReviewStatus ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setPersonOrCorporation ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setProgram ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setProjectWebsite ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Relation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setProvider ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setProvinceOrState ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setPublisher ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setRBSCLocation ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setReference ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setRights ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Rights ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setRightsURI ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setScholarlyLevel ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setSeries ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setShore ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setSource ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Source ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setStreamWidth ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setSubject ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setTemperature ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setTide ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setTime ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Title ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setTitle ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Title ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setTranslation ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Title ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setType ($value, $label = false, array $attributes = []) {
+
+            $this->_setProperty(new Schemas\DCTerms\Properties\Type ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setURI ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setVegetation ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setWater ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setWatershed ($value, $label = false, array $attributes = []) {
+
+            //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
+            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        }
 
     }
