@@ -19,7 +19,6 @@
     use UBC\LSIT\Resources\Metadata\Profiles\ORE;
     use UBC\LSIT\Resources\Metadata\Profiles\SKOS;
     use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
-    use Sabre\XML\Writer;
 
     /**
      * Class ApplicationProfile
@@ -162,7 +161,7 @@
             foreach ($traits as $k => $trait) {
                 $props = $trait->getProperties ();
                 foreach ($props as $prop) {
-                    if ($prop->name === $name) {
+                    if (trim($prop->name) == trim($name)) {
                         $class = $prop->class;
                         $class = str_ireplace ("openlibrary\\", '', $class);
                         $class = str_ireplace ("metadata\\", '', $class);
@@ -185,71 +184,6 @@
                 }
             }
             return "unmapped:{$name}";
-        }
-
-
-
-        public function generateSchemaDefinitionAsXML ($verbose = true)
-        {
-            $ret = $this->getAll ($verbose);
-
-            foreach ($ret as $k => &$property) {
-                if (is_array ($property) && count (array_filter ($property)) === 0) {
-                    unset ($ret[$k]);
-                }
-            }
-            unset($property);
-
-            $xml = [];
-
-            $xmlWriter = new Writer();
-            $xmlWriter->openMemory ();
-            $xmlWriter->startDocument ();
-            $xmlWriter->setIndent (true);
-            $xmlWriter->namespaceMap = ['https://open.library.ubc.ca/terms#' => 'oc'];
-
-            $xmlWriter->startElement ('{https://open.library.ubc.ca/terms#}OpenCollectionsItem');
-
-            foreach ($ret as $k => &$property) {
-                if ( !isset($property['ocmap'])) {
-                    foreach ($property as $_k => &$_property) {
-                        $ns = isset($_property['ns']) ? $property['ns'] : '';
-                        $tg = explode (':', $_property['ocmap']);
-                        $tg = array_pop ($tg);
-
-                        $attrs = [
-                            'lang' => $_property['attrs']['lang']
-                        ];
-
-                        $xml [] = [
-                            'name'         => "{{$ns}}$tg"
-                            , 'attributes' => $attrs
-                            , 'value'      => is_object ($_property['value']) ? $_property['value']->getValue () : $_property['value']
-                        ];
-                    }
-                    unset($_property);
-                } else {
-                    $ns = isset($property['ns']) ? $property['ns'] : '';
-                    $tg = explode (':', $property['ocmap']);
-                    $tg = array_pop ($tg);
-
-                    $attrs = [
-                        'lang' => $property['attrs']['lang']
-                    ];
-
-                    $xml [] = [
-                        'name'         => "{{$ns}}$tg"
-                        , 'attributes' => $attrs
-                        , 'value'      => is_object ($property['value']) ? $property['value']->getValue () : $property['value']
-                    ];
-                }
-            }
-            unset($property);
-
-            $xmlWriter->write ($xml);
-            $xmlWriter->endElement ();
-
-            return $xmlWriter->outputMemory ();
         }
 
         private function getAll ($verbose)
