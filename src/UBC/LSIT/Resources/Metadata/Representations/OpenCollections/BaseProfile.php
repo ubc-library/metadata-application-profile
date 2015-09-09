@@ -155,7 +155,6 @@
 
         protected function getClassmap ($name)
         {
-            $ret = '[class_not_currently_mapped]';
             $reflect = new \ReflectionClass($this);
             $traits = $reflect->getTraits ();
 
@@ -184,7 +183,7 @@
                     }
                 }
             }
-            return $ret;
+            return '[class_not_currently_mapped]';
         }
 
 
