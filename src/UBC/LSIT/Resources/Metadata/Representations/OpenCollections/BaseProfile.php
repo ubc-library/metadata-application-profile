@@ -64,7 +64,25 @@
         protected $SortDate;
 
 
+        /**
+         * @param \OpenLibrary\Metadata\Schemas\AbstractProperty $obj
+         * @param                                                $propertyName
+         * @param array                                          $attributes
+         * @param bool|false                                     $isArray
+         */
+        protected function _setProperty (AbstractProperty $obj, $propertyName, array $attributes, $isArray = false) {
 
+            $attributes['ns']       = $this->getNamespace($obj);
+            $attributes['classmap'] = $this->getClassmap($propertyName);
+            $attributes['property'] = $obj->getName();//was ocmap
+            $obj->setAttributes($attributes);
+            if($isArray) {
+                $this->{$propertyName}[] = $obj;
+            }
+            else {
+                $this->{$propertyName} = $obj;
+            }
+        }
 
         public function setFullText ($v = false, $t = false, $l = 'FullText')
         {
