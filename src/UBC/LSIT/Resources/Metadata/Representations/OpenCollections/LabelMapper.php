@@ -77,12 +77,12 @@
             'Watershed'           => 'watershed'
         ];
 
-        public static function getSystemField ($lookup)
+        public static function getPropertyLabel ($lookup)
         {
             if ( !empty(self::$systemFields[$lookup])) {
                 return self::$systemFields[$lookup];
             }
-            error_log ("Language not found for code [$lookup]");
+            error_log ("Property Label not found for Property [$lookup]");
 
             return $lookup;
         }
