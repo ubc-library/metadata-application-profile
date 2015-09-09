@@ -21,7 +21,7 @@
     use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
 
     /**
-     * Class ApplicationProfile
+     * Class BaseProfile
      *
      * Whilst most of the properties should be in their contextual profiles,
      * some, such as the Sort Date, which are needed by the Application, are
@@ -174,7 +174,8 @@
         protected function getClassmap ($name)
         {
             error_log("Getting classmap for: {$name}");
-            $reflect = new \ReflectionClass($this);
+            $t = new \ReflectionClass($this);
+            $reflect = new \ReflectionClass($t->getParentClass());
             $traits = $reflect->getTraits ();
             error_log('Traits: ' . json_encode($traits));
 
