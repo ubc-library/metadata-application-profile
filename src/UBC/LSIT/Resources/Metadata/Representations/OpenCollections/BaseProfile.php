@@ -78,15 +78,6 @@
             }
         }
 
-
-        protected function getNamespace ($obj)
-        {
-            $reflect = new \ReflectionObject($obj);
-            $ret = $reflect->getParentClass ()->getDefaultProperties ();
-
-            return isset($ret['uri']) ? $ret ['uri'] : false;
-        }
-
         protected function getClasspath ($name)
         {
             /*

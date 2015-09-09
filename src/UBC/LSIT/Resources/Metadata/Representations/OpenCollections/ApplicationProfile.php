@@ -70,7 +70,7 @@
             } else {
                 $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
             }
-            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['ns'] = $obj->getUri();
             $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
             $obj->setAttributes ($attributes);
             $this->SortDate = $obj;
@@ -793,7 +793,7 @@
         public function setFullText ($v = false, $t = false, $l = 'FullText')
         {
             $obj = new Schemas\OpenAnnotation\Annotation($v, $t, $l);
-            $attributes['ns'] = $this->getNamespace ($obj);
+            $attributes['ns'] = $obj->getUri();
             $attributes['classmap'] = $this->getClassmap ('FullText');
             $obj->setAttributes ($attributes);
             $this->FullText = $obj;
