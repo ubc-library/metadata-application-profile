@@ -13,8 +13,6 @@
 
     trait UnmappedDescription {
 
-
-
         /**
          * @var AbstractProperty
          */
@@ -85,21 +83,6 @@
          */
         public $Rights;
 
-        /**
-         * @var AbstractProperty
-         */
-        public $AggregatedSourceRepository;
-
-        /**
-         * @var AbstractProperty
-         */
-        public $DigitalResourceOriginalRecord;
-
-
-        /**
-         * @var AbstractProperty
-         */
-        public $HasView;
 
         /**
          * @var AbstractProperty
@@ -109,25 +92,9 @@
         /**
          * @return AbstractProperty
          */
-        public function getAffiliation () {
-
-            return $this->Affiliation;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
         public function getCatalogueRecord () {
 
             return $this->CatalogueRecord;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getDegree () {
-
-            return $this->Degree;
         }
 
         /**
@@ -232,30 +199,6 @@
         public function getRights () {
 
             return $this->Rights;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getAggregatedSourceRepository () {
-
-            return $this->AggregatedSourceRepository;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getDigitalResourceOriginalRecord () {
-
-            return $this->DigitalResourceOriginalRecord;
-        }
-
-        /**
-         * @return AbstractProperty
-         */
-        public function getHasView () {
-
-            return $this->HasView;
         }
 
         /**

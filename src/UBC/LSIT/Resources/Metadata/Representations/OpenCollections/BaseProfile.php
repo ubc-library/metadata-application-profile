@@ -39,6 +39,8 @@
         use OpenCollections\ThesisDescription;
         use OpenCollections\UnmappedDescription;
         use VIVO\ThesisDegree;
+        use VIVO\EducationalProcess;
+        use ORE\Aggregation;
 
         /**
          * @var AbstractProperty
