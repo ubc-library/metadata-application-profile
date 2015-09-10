@@ -979,7 +979,7 @@
         public function setPeerReviewStatus ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\PeerReviewStatus ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
