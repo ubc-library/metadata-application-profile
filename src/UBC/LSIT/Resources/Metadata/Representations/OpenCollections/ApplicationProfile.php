@@ -730,17 +730,17 @@
         }
 
         /**
-         * @param bool|string $v
-         * @param bool|string $t
+         * @param string $v
          * @param string $l
+         * @param array $attrs
          */
-        public function setFullText ($v = false, $t = false, $l = 'FullText')
+        public function setFullText ($v = '', $l = 'FullText', $attrs = [])
         {
             #todo skk this is wrong, should be annotation
             $obj = new Schemas\SKOS\Properties\Note($v,$l);
-            $attributes['ns'] = $obj->getUri();
-            $attributes['classmap'] = $this->getClassmap ('FullText');
-            $obj->setAttributes ($attributes);
+            $attrs['ns'] = $obj->getUri();
+            $attrs['classmap'] = $this->getClassmap ('FullText');
+            $obj->setAttributes ($attrs);
             $this->FullText = $obj;
         }
 
@@ -1134,4 +1134,8 @@
             $this->_setProperty(new Schemas\OC\Properties\Watershed($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
+
+        public function getFullText () {
+            return $this->FullText;
+        }
     }
