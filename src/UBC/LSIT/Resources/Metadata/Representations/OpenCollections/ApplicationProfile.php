@@ -9,7 +9,6 @@
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
     use OpenLibrary\Metadata\Schemas;
-    use OpenLibrary\Metadata\Profiles;
     use OpenLibrary\Metadata\Schemas\AbstractProperty;
     use UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
     use UBC\LSIT\Resources\Metadata\Profiles\ORE;
@@ -365,7 +364,7 @@
          */
         public function setAffiliation ($value, $label = false, array $attributes = []) {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty(new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -632,7 +631,7 @@
          */
         public function setDateAvailable ($value, $label = false, array $attributes = []) {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Available ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
         }
 
         /**
@@ -643,7 +642,7 @@
         public function setDateCreated ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Created ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -654,7 +653,7 @@
         public function setDateIssued ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -881,7 +880,7 @@
         public function setLanguage ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Language ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
