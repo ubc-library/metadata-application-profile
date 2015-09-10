@@ -675,7 +675,7 @@
         public function setDegreeGrantor ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\DegreeGrantor ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -686,7 +686,7 @@
         public function setDepthOfCapture ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\FI\Properties\DepthZone ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -697,7 +697,7 @@
         public function setDepthOfWater ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\FI\Properties\Bathymetry ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -718,7 +718,7 @@
         public function setDigitalResourceOriginalRecord ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\EDM\Properties\AggregatedCHO ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -729,7 +729,7 @@
         public function setDistanceOffshore ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\FI\Properties\HorizontalDist ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -740,7 +740,7 @@
         public function setEdition ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\Edition ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -781,7 +781,7 @@
          */
         public function setFileUUID ($value, $label = false, array $attributes = []) {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty(new Schemas\OC\Properties\IdentifierFile ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -836,7 +836,7 @@
         public function setGrantFundingAgency ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\HasGrantFunder ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -847,7 +847,7 @@
         public function setHasView ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\EDM\Properties\HasView ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -858,7 +858,7 @@
         public function setIdentifier ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -869,7 +869,7 @@
         public function setIsShownAt ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\EDM\Properties\IsShownAt ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -891,7 +891,7 @@
         public function setLatitude ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\WGS84\Properties\Lat ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -902,7 +902,7 @@
         public function setLicense ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\DCTerms\Properties\License ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -913,7 +913,7 @@
         public function setLocality ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\FI\Properties\WaterAreaOverview ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -924,7 +924,7 @@
         public function setLongitude ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\WGS84\Properties\Long ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -935,7 +935,7 @@
         public function setMap ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\MapProperty ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -946,7 +946,7 @@
         public function setMethodOfCapture ($value, $label = false, array $attributes = []) {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty(new Schemas\OC\Properties\CaptureMethod ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
         }
 
         /**

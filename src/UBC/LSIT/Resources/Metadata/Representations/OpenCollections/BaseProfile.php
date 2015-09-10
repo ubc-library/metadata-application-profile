@@ -194,6 +194,7 @@
                         $class = str_ireplace ("edm\\", 'edm:', $class);
                         $class = str_ireplace ("fi\\", 'fi:', $class);
                         $class = str_ireplace ("oa\\", 'oa:', $class);
+                        $class = str_ireplace ("oc\\", 'oc:', $class);
                         $class = str_ireplace ("opencollections\\", 'oc:', $class);
                         $class = str_ireplace ("ore\\", 'ore:', $class);
                         $class = str_ireplace ("skos\\", 'skos:', $class);
