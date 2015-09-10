@@ -30,7 +30,6 @@
     },
     "require": {
         "php": ">=5.3.0",
-        "open-library/metadata-resources": "dev-master",
         "sabre/xml": "@stable"
     },
     "autoload": {

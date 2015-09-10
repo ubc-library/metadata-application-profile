@@ -8,11 +8,11 @@
 
     namespace UBC\LSIT\Resources\Metadata\Representations\OpenCollections;
 
-    use OpenLibrary\Metadata\Schemas;
-    use OpenLibrary\Metadata\Schemas\AbstractProperty;
-    use UBC\LSIT\Resources\Metadata\Profiles\OpenCollections;
-    use UBC\LSIT\Resources\Metadata\Profiles\ORE;
-    use UBC\LSIT\Resources\Metadata\Profiles\VIVO;
+    use UBC\LSIT\Resources\Metadata\Schemas;
+    use UBC\LSIT\Resources\Metadata\Schemas\AbstractProperty;
+    use UBC\LSIT\Resources\Metadata\Schemas\OC;
+    use UBC\LSIT\Resources\Metadata\Schemas\ORE;
+    use UBC\LSIT\Resources\Metadata\Schemas\VIVO;
 
     /**
      * Class ApplicationProfile
@@ -404,7 +404,7 @@
          */
         public function setAnnotation ($value, $label = false, array $attributes = []) {
 
-            $this->_setProperty(new Schemas\OpenAnnotation\Annotation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty(new Schemas\SKOS\Properties\Note ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -791,7 +791,7 @@
          */
         public function setFullText ($v = false, $t = false, $l = 'FullText')
         {
-            $obj = new Schemas\OpenAnnotation\Annotation($v, $t, $l);
+            $obj = new Schemas\SKOS\Properties\Note($v,$l);
             $attributes['ns'] = $obj->getUri();
             $attributes['classmap'] = $this->getClassmap ('FullText');
             $obj->setAttributes ($attributes);
