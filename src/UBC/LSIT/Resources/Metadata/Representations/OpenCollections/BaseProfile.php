@@ -169,17 +169,17 @@
 
         protected function getClassmap ($name)
         {
-            error_log ("Getting classmap for: {$name}");
+            //error_log ("Getting classmap for: {$name}");
             $reflect = new \ReflectionClass(new BaseProfile());
             $traits = $reflect->getTraits ();
-            error_log ('Traits: ' . json_encode ($traits));
-            error_log ("Reflecting in {$reflect->getName()}");
+            //error_log ('Traits: ' . json_encode ($traits));
+            //error_log ("Reflecting in {$reflect->getName()}");
 
             foreach ($traits as $k => $trait) {
                 $props = $trait->getProperties ();
-                error_log ('Trait Props: ' . json_encode ($props));
+                //error_log ('Trait Props: ' . json_encode ($props));
                 foreach ($props as $prop) {
-                    error_log ("{$prop->name} |  {$name}");
+                    //error_log ("{$prop->name} |  {$name}");
                     if (trim ("{$prop->name}") === trim ("{$name}")) {
                         $class = $prop->class;
                         $class = str_ireplace ("openlibrary\\", '', $class);
