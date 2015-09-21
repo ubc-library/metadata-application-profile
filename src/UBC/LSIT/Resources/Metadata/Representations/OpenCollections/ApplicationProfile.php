@@ -350,7 +350,9 @@
                         }
                     }
                     else {
-                        error_log("Could net find the MAP Property in the give data entry: {$k} => " . json_encode($props));
+                        if(!in_array("{$k}", ['id','fake12345'], true)){
+                            error_log("MAP_ERROR: Has not been specified how to map Property: {$k} => " . json_encode($props));
+                        }
                     }
                 }
             }
