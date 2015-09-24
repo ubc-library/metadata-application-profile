@@ -20,6 +20,7 @@
 
         private static $systemFields = [
             'AlternateTitle'      => 'alternateTitle',
+            'Affiliation'         => 'affiliation',
             'AIPUUID'             => 'aipUUID',
             'Bottom'              => 'bottom',
             'Campus'              => 'campus',
@@ -39,6 +40,7 @@
             'DateCreated'         => 'dateCreated',
             'DateIssued'          => 'dateIssued',
             'DegreeGrantor'       => 'degreeGrantor',
+            'Degree'              => 'degree',
             'DepthOfCapture'      => 'depthOfCapture',
             'DepthOfWater'        => 'depthOfWater',
             'Description'         => 'description',
@@ -52,6 +54,7 @@
             'Identifier'          => 'identifier',
             'Language'            => 'language',
             'MethodOfCapture'     => 'methodOfCapture',
+            'Notes'               => 'notes',
             'OriginalPreserved'   => 'originalPreserved',
             'PeerReviewStatus'    => 'peerReviewStatus',
             'PersonOrCorporation' => 'personOrCorporation',
