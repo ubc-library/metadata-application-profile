@@ -350,7 +350,7 @@
                         }
                     }
                     else {
-                        if(!in_array("{$k}", ['id','fake12345','dmrecord','find','dmmodified','dmoclcno','dmcreated'], true)){
+                        if(!in_array("{$k}", ['id','fake12345','dmrecord','find','dmmodified','dmoclcno','dmcreated','fullrs'], true)){
                             error_log("MAP_ERROR: Has not been specified how to map Property: {$k} => " . json_encode($props));
                         }
                     }
