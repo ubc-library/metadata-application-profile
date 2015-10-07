@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Indicates a bibliographic reference for the resource if it has been previously published.';
 
             $this->setDescription (implode ('; ', $d));
 

@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Indicates the number assigned to the collector of the specimens.';
 
             $this->setDescription (implode ('; ', $d));
 

@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Describes the features of the shore where the specimens were collected.';
 
             $this->setDescription (implode ('; ', $d));
 

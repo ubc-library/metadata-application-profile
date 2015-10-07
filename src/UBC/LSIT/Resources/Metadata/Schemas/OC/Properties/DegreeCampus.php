@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Identifies the name of the campus from which the graduate completed their degree.';
 
             $this->setDescription (implode ('; ', $d));
 

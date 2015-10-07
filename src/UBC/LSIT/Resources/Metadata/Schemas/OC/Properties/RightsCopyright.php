@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Refers to the publisher or author who holds the copyright.';
 
             $this->setDescription (implode ('; ', $d));
 

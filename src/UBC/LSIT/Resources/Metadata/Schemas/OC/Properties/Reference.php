@@ -32,7 +32,8 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Records the reference numbers from various indices.';
+            $d [] = 'Records the reference numbers from various indices.';
 
             $this->setDescription (implode ('; ', $d));
 

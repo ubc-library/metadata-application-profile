@@ -32,7 +32,7 @@
             $d = [];
             $d [] = $this->getDescription ();
             $d [] = 'Local Field';
-            $d [] = 'Used to describe the method used to capture the specimens.';
+            $d [] = 'Identifies the agency responsible for issuing a grant to one or more of the creators of the resource.';
 
             $this->setDescription (implode ('; ', $d));
 
