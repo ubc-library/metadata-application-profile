@@ -19,17 +19,17 @@
      * kept in this file, especially as they may be system generated if not
      * found in the source resource
      */
-    class ApplicationProfile extends BaseProfile {
-
-        /**
-         * @var int
-         */
-        private $version = 1;
+    class ApplicationProfile extends BaseProfile
+    {
 
         /**
          * @var AbstractProperty
          */
         protected $SortDate;
+        /**
+         * @var int
+         */
+        private $version = 1;
 
         /**
          * @param bool|false $date
@@ -66,7 +66,7 @@
             } else {
                 $obj = new Schemas\DC\Properties\Date($value, 'Sort Date');
             }
-            $attributes['ns'] = $obj->getUri();
+            $attributes['ns'] = $obj->getUri ();
             $attributes['classmap'] = $this->getClassmap ('AlternateTitle');
             $obj->setAttributes ($attributes);
             $this->SortDate = $obj;
@@ -143,9 +143,10 @@
          *
          * @return array
          */
-        public function generateSchemaDefinitionAsArray ($verbose = true) {
+        public function generateSchemaDefinitionAsArray ($verbose = true)
+        {
 
-            return $this->getAll($verbose);
+            return $this->getAll ($verbose);
         }
 
         /**
@@ -156,9 +157,15 @@
          * @deprecated
          *
          */
-        public function generateSchemaDefinitionAsJSON ($verbose = true) {
+        public function generateSchemaDefinitionAsJSON ($verbose = true)
+        {
 
-            return $this->getAll($verbose);
+            return $this->getAll ($verbose);
+        }
+
+        public function getFullText ()
+        {
+            return $this->FullText;
         }
 
         /**
@@ -166,44 +173,29 @@
          *
          * @return array
          */
-        private function getAll ($verbose) {
+        private function getAll ($verbose)
+        {
 
-            if($verbose) {
-                return $this->getAllVerbosely();
-            }
-            else {
+            if ($verbose) {
+                return $this->getAllVerbosely ();
+            } else {
                 $data = [];
                 foreach ($this as $k => $v) {
-                    if(isset($v) && !is_null($v)) {
+                    if (isset($v) && !is_null ($v)) {
                         $cmd = "get{$k}";
-                        if(method_exists($this, $cmd)) {
+                        if (method_exists ($this, $cmd)) {
                             $v = $this->{$cmd}();
-                            if(is_array($v)) {
-                                foreach ($v as &$_v) {
-                                    $data[ $k ][] = [
-                                        'label' => $_v->getLabel()
-                                        ,
-                                        'value' => $_v->getValue()
-                                        ,
-                                        'attrs' => $_v->getAttributes()
-                                    ];
+                            if (is_array ($v)) {
+                                foreach ($v as $_v) {
+                                    $data[$k][] = $this->getStructure ($_v, $k, false);
                                 }
-                            }
-                            else {
-                                $data[ $k ][] = [
-                                    'label' => $v->getLabel()
-                                    ,
-                                    'value' => $v->getValue()
-                                    ,
-                                    'attrs' => $v->getAttributes()
-                                ];
-
+                            } else {
+                                $data[$k][] = $this->getStructure ($v, $k, false);
                             }
                         }
 
-                    }
-                    else {
-                        unset($data[ $k ]);
+                    } else {
+                        unset($data[$k]);
                     }
                 }
 
@@ -214,79 +206,84 @@
         /**
          * @return array
          */
-        private function getAllVerbosely () {
+        private function getAllVerbosely ()
+        {
 
             $data = [];
 
             foreach ($this as $k => $v) {
-                if(isset($v) && !is_null($v)) {
+                if (isset($v) && !is_null ($v)) {
                     $cmd = "get{$k}";
-                    if(method_exists($this, $cmd)) {
+                    if (method_exists ($this, $cmd)) {
                         $v = $this->{$cmd}();
-                        if(is_array($v)) {
-                            foreach ($v as &$_v) {
-                                $data[ $k ][] = [
-                                    'label'   => $_v->getLabel()
-                                    ,
-                                    'value'   => $_v->getValue()
-                                    ,
-                                    'attrs'   => $_v->getAttributes()
-                                    ,
-                                    'iri'     => $_v->getUri()
-                                    ,
-                                    'explain' => $_v->getDescription()
-                                ];
+                        if (is_array ($v)) {
+                            foreach ($v as $_v) {
+                                $data[$k][] = $this->getStructure ($_v, $k, true);
                             }
-                        }
-                        else {
-                            $data[ $k ][] = [
-                                'label'   => $v->getLabel()
-                                ,
-                                'value'   => $v->getValue()
-                                ,
-                                'attrs'   => $v->getAttributes()
-                                ,
-                                'iri'     => $v->getUri()
-                                ,
-                                'explain' => $v->getDescription()
-                            ];
-
+                        } else {
+                            $data[$k][] = $this->getStructure ($v, $k, true);
                         }
                     }
-
-                }
-                else {
-                    unset($data[ $k ]);
+                } else {
+                    unset($data[$k]);
                 }
             }
 
             return $data;
         }
 
-        /**
-         * @return array
-         */
-        public function generateSchemaSearchMapAsArray () {
-
-            return $this->getSearchFields();
+        public function getStructure (AbstractProperty $v, $k = '', $full = true)
+        {
+            $value = $v->getValue ();
+            if (in_array ($k, ['Subject', 'Genre', 'Language'], true)) {
+                $value = ucwords ($value);
+            }
+            if ($full) {
+                return [
+                      'label'     => $v->getLabel ()
+                    , 'value'   => $value
+                    , 'attrs'   => $v->getAttributes ()
+                    , 'iri'     => $v->getUri ()
+                    , 'explain' => $v->getDescription ()
+                ];
+            } else {
+                return [
+                      'label'   => $v->getLabel ()
+                    , 'value' => $value
+                    , 'attrs' => $v->getAttributes ()
+                ];
+            }
         }
 
         /**
          * @return array
          */
-        private function getSearchFields () {
+        public function generateSchemaSearchMapAsArray ()
+        {
+
+            return $this->getSearchFields ();
+        }
+
+        /**
+         * @return array
+         */
+        private function getSearchFields ()
+        {
 
             $data = [];
             foreach ($this as $k => $property) {
-                $data[ $k ][] = [
-                    'label'  => LabelMapper::getPropertyLabel($k)
+                $data[$k][] = [
+                    'label'  => LabelMapper::getPropertyLabel ($k)
                     ,
-                    'sysmap' => SearchMapper::getSystemField($k)
+                    'sysmap' => SearchMapper::getSystemField ($k)
                 ];
             }
 
             return $data;
         }
+
+        # Profile Properties Below
+        # ------------------------
 
         /**
          * @param array  $data
@@ -306,7 +303,8 @@
          *  }
          *
          */
-        public function generateMetadataStubs (array $data, $ignoreThisPrefix = 'internal') {
+        public function generateMetadataStubs (array $data, $ignoreThisPrefix = 'internal')
+        {
 
             $ret = [];
 
@@ -321,24 +319,23 @@
             ];
 
             foreach ($data as $k => $props) {
-                if(stripos($k, $ignoreThisPrefix) === false) {
-                    if(isset($props['property'])) {
-                        if(isset($props['value']) && count($props['value']) > 0) {
-                            if(!is_array($props['value'])) {
+                if (stripos ($k, $ignoreThisPrefix) === false) {
+                    if (isset($props['property'])) {
+                        if (isset($props['value']) && count ($props['value']) > 0) {
+                            if ( !is_array ($props['value'])) {
                                 $props['value'] = [$props['value']];
                             }
-                            if(in_array($props['property'], $uniqueFields, true)) {
-                                $ret[ $props['property'] ] = [
+                            if (in_array ($props['property'], $uniqueFields, true)) {
+                                $ret[$props['property']] = [
                                     'label' => $props['label'],
-                                    'value' => array_pop($props['value']),
+                                    'value' => array_pop ($props['value']),
                                     'attrs' => [
                                         'lang' => $props['language']
                                     ]
                                 ];
-                            }
-                            else {
+                            } else {
                                 foreach ($props['value'] as $value) {
-                                    $ret[ $props['property'] ][] = [
+                                    $ret[$props['property']][] = [
                                         'label' => $props['label'],
                                         'value' => $value,
                                         'attrs' => [
@@ -348,10 +345,9 @@
                                 }
                             }
                         }
-                    }
-                    else {
-                        if(!in_array("{$k}", ['id','fake12345','dmrecord','find','dmmodified','dmoclcno','dmcreated','fullrs'], true)){
-                            error_log("MAP_ERROR: Has not been specified how to map Property: {$k} => " . json_encode($props));
+                    } else {
+                        if ( !in_array ("{$k}", ['id', 'fake12345', 'dmrecord', 'find', 'dmmodified', 'dmoclcno', 'dmcreated', 'fullrs'], true)) {
+                            error_log ("MAP_ERROR: Has not been specified how to map Property: {$k} => " . json_encode ($props));
                         }
                     }
                 }
@@ -360,17 +356,15 @@
             return $ret;
         }
 
-        # Profile Properties Below
-        # ------------------------
-
         /**
          * @param            $value
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setAffiliation ($value, $label = false, array $attributes = []) {
+        public function setAffiliation ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\VIVO\Properties\DepartmentOrSchool ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\VIVO\Properties\DepartmentOrSchool ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -378,9 +372,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setAggregatedSourceRepository ($value, $label = false, array $attributes = []) {
+        public function setAggregatedSourceRepository ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\EDM\Properties\DataProvider ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\EDM\Properties\DataProvider ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -388,9 +383,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setAIPUUID ($value, $label = false, array $attributes = []) {
+        public function setAIPUUID ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\OC\Properties\IdentifierAIP ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\OC\Properties\IdentifierAIP ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -398,9 +394,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setAlternateTitle ($value, $label = false, array $attributes = []) {
+        public function setAlternateTitle ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -408,9 +405,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setAnnotation ($value, $label = false, array $attributes = []) {
+        public function setAnnotation ($value, $label = false, array $attributes = [])
+        {
             #todo skk this should be annotation
-            $this->_setProperty(new Schemas\SKOS\Properties\Note ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\SKOS\Properties\Note ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -418,8 +416,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setBottom ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\BottomType ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setBottom ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\BottomType ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -427,8 +426,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCampus ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\DegreeCampus ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCampus ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\DegreeCampus ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -436,8 +436,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCatalogueNumber ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCatalogueNumber ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -445,8 +446,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCatalogueRecord ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\IsReferencedBy ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        public function setCatalogueRecord ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\IsReferencedBy ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
         }
 
         /**
@@ -454,8 +456,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCategory ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCategory ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -463,8 +466,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCitation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\IdentifierCitation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCitation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\IdentifierCitation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -472,8 +476,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCollectedBy ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DC\Properties\Creator ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCollectedBy ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DC\Properties\Creator ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -481,8 +486,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCollection ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCollection ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -490,9 +496,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCollectionDescription ($value, $label = false, array $attributes = []) {
+        public function setCollectionDescription ($value, $label = false, array $attributes = [])
+        {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -500,10 +507,11 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCollectionTitle ($value, $label = false, array $attributes = []) {
+        public function setCollectionTitle ($value, $label = false, array $attributes = [])
+        {
 
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Alternative ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -511,8 +519,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCollectorNumber ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\CollectorNumber ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCollectorNumber ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\CollectorNumber ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -520,8 +529,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setContents ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\TableOfContents ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setContents ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\TableOfContents ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -529,8 +539,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setContributor ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setContributor ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -538,8 +549,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCopyrightHolder ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\RightsCopyright ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCopyrightHolder ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\RightsCopyright ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -547,8 +559,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCountry ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Coverage ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCountry ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Coverage ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -556,8 +569,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCover ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Cover ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCover ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Cover ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -565,8 +579,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCreator ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Creator ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setCreator ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Creator ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -574,8 +589,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCredits ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCredits ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Contributor ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -583,8 +599,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setCurrent ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Current ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setCurrent ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Current ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -592,8 +609,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDate ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DC\Properties\Date ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setDate ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DC\Properties\Date ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -601,8 +619,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDateAvailable ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        public function setDateAvailable ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
         }
 
         /**
@@ -610,8 +629,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDateCreated ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Created ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDateCreated ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Created ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -619,8 +639,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDateIssued ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDateIssued ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Issued ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -628,8 +649,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDegree ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDegree ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\VIVO\Properties\RelatedDegree ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -637,8 +659,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDegreeGrantor ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\DegreeGrantor ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDegreeGrantor ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\DegreeGrantor ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -646,8 +669,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDepthOfCapture ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\DepthZone ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDepthOfCapture ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\DepthZone ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -655,8 +679,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDepthOfWater ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\Bathymetry ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDepthOfWater ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\Bathymetry ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -664,8 +689,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDescription ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Description ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setDescription ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Description ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -673,8 +699,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDigitalResourceOriginalRecord ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\AggregatedCHO ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDigitalResourceOriginalRecord ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\AggregatedCHO ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -682,8 +709,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setDistanceOffshore ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\HorizontalDist ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setDistanceOffshore ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\HorizontalDist ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -691,8 +719,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setEdition ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Edition ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setEdition ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Edition ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -700,8 +729,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setEpisode ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\DescriptionEpisode ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setEpisode ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\DescriptionEpisode ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -709,8 +739,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setExtent ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Extent ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setExtent ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Extent ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -718,8 +749,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setFileFormat ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DC\Properties\Format ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setFileFormat ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DC\Properties\Format ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -727,20 +759,21 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setFileUUID ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\IdentifierFile ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setFileUUID ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\IdentifierFile ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
          * @param string $v
          * @param string $l
-         * @param array $attrs
+         * @param array  $attrs
          */
         public function setFullText ($v = '', $l = 'FullText', $attrs = [])
         {
             #todo skk this is wrong, should be annotation
-            $obj = new Schemas\SKOS\Properties\Note($v,$l);
-            $attrs['ns'] = $obj->getUri();
+            $obj = new Schemas\SKOS\Properties\Note($v, $l);
+            $attrs['ns'] = $obj->getUri ();
             $attrs['classmap'] = $this->getClassmap ('FullText');
             $obj->setAttributes ($attrs);
             $this->FullText = $obj;
@@ -751,8 +784,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setGenre ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\HasType ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setGenre ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\HasType ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -760,8 +794,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setGeographicLocation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Spatial ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setGeographicLocation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Spatial ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -769,8 +804,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setGraduationDate ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\VIVO\Properties\DateIssued ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setGraduationDate ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\VIVO\Properties\DateIssued ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -778,8 +814,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setGrantFundingAgency ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\HasGrantFunder ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setGrantFundingAgency ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\HasGrantFunder ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -787,8 +824,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setHasView ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\HasView ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setHasView ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\HasView ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -796,8 +834,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setIdentifier ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setIdentifier ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -805,8 +844,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setIsShownAt ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\IsShownAt ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setIsShownAt ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\IsShownAt ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -814,8 +854,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setLanguage ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Language ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setLanguage ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Language ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -823,8 +864,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setLatitude ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\WGS84\Properties\Lat ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setLatitude ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\WGS84\Properties\Lat ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -832,9 +874,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setLicense ($value, $label = false, array $attributes = []) {
+        public function setLicense ($value, $label = false, array $attributes = [])
+        {
             //TODO SKK this is not the correct class, this is a copy and paste job, fix the type
-            $this->_setProperty(new Schemas\DCTerms\Properties\License ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\License ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -842,8 +885,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setLocality ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\WaterAreaOverview ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setLocality ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\WaterAreaOverview ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -851,8 +895,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setLongitude ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\WGS84\Properties\Long ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setLongitude ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\WGS84\Properties\Long ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -860,8 +905,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setMap ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\MapProperty ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setMap ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\MapProperty ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -869,8 +915,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setMethodOfCapture ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\CaptureMethod ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setMethodOfCapture ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\CaptureMethod ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -878,8 +925,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setNotes ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\SKOS\Properties\Note ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setNotes ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\SKOS\Properties\Note ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -887,8 +935,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setOriginalPreserved ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\OriginalPreserved ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setOriginalPreserved ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\OriginalPreserved ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -896,8 +945,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setPeerReviewStatus ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\PeerReviewStatus ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setPeerReviewStatus ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\PeerReviewStatus ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -905,8 +955,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setPersonOrCorporation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setPersonOrCorporation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -914,8 +965,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setProgram ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\DegreeDiscipline ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setProgram ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\DegreeDiscipline ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -923,8 +975,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setProjectWebsite ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Relation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setProjectWebsite ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Relation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -932,8 +985,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setProvider ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\Provider ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setProvider ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\Provider ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -941,8 +995,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setProvinceOrState ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Spatial ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setProvinceOrState ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Spatial ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -950,8 +1005,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setPublisher ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setPublisher ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -959,8 +1015,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setRBSCLocation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\CurrentLocation ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setRBSCLocation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\CurrentLocation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -968,8 +1025,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setReference ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Reference ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setReference ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Reference ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -977,8 +1035,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setRights ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Rights ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+        public function setRights ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Rights ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
         }
 
         /**
@@ -986,8 +1045,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setRightsURI ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\RightsURI ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setRightsURI ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\RightsURI ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -995,8 +1055,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setScholarlyLevel ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\ScholarLevel ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setScholarlyLevel ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\ScholarLevel ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1004,8 +1065,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setSeries ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setSeries ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\IsPartOf ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1013,8 +1075,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setShore ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Shore($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setShore ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Shore($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1022,9 +1085,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setSource ($value, $label = false, array $attributes = []) {
+        public function setSource ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Source ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, false);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Source ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, false);
         }
 
         /**
@@ -1032,8 +1096,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setStreamWidth ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\StreamWidth($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setStreamWidth ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\StreamWidth($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1041,8 +1106,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setSubject ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setSubject ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1050,8 +1116,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setTemperature ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\FI\Properties\WaterCondition($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setTemperature ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\FI\Properties\WaterCondition($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1059,8 +1126,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setTide ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Tide($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setTide ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Tide($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1068,8 +1136,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setTime ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Temporal($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setTime ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Temporal($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1077,8 +1146,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setTitle ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\DCTerms\Properties\Title ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setTitle ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Title ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1086,8 +1156,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setTranslation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\EDM\Properties\IsDerivativeOf($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+        public function setTranslation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\EDM\Properties\IsDerivativeOf($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1095,9 +1166,10 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setType ($value, $label = false, array $attributes = []) {
+        public function setType ($value, $label = false, array $attributes = [])
+        {
 
-            $this->_setProperty(new Schemas\DCTerms\Properties\Type ($value, $label), str_replace('set', '', __FUNCTION__), $attributes, true);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Type ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1105,8 +1177,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setURI ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\IdentifierURI($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setURI ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\IdentifierURI($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1114,8 +1187,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setVegetation ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Vegetation($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setVegetation ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Vegetation($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1123,8 +1197,9 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setWater ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Water($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
+        public function setWater ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Water($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
 
         /**
@@ -1132,12 +1207,8 @@
          * @param bool|false $label
          * @param array      $attributes
          */
-        public function setWatershed ($value, $label = false, array $attributes = []) {
-            $this->_setProperty(new Schemas\OC\Properties\Watershed($value, $label), str_replace('set', '', __FUNCTION__), $attributes);
-        }
-
-
-        public function getFullText () {
-            return $this->FullText;
+        public function setWatershed ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\OC\Properties\Watershed($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
         }
     }
