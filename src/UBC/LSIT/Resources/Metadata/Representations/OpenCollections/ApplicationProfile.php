@@ -458,7 +458,7 @@
          */
         public function setCategory ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Subject ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -551,7 +551,7 @@
          */
         public function setCopyrightHolder ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\OC\Properties\RightsCopyright ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\OC\Properties\RightsCopyright ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -836,7 +836,7 @@
          */
         public function setIdentifier ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Identifier ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -927,7 +927,7 @@
          */
         public function setNotes ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\SKOS\Properties\Note ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\SKOS\Properties\Note ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1027,7 +1027,7 @@
          */
         public function setReference ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\OC\Properties\Reference ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\OC\Properties\Reference ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1179,7 +1179,7 @@
          */
         public function setURI ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\OC\Properties\IdentifierURI($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\OC\Properties\IdentifierURI($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
