@@ -1057,7 +1057,7 @@
          */
         public function setScholarlyLevel ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\OC\Properties\ScholarLevel ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\OC\Properties\ScholarLevel ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
