@@ -46,7 +46,12 @@
          * @var AbstractProperty
          */
         protected $PersonOrCorporation;
-
+    
+        /**
+         * @var AbstractProperty
+         */
+        protected $PublisherDOI;
+    
         /**
          * @var AbstractProperty
          */
@@ -121,6 +126,14 @@
         public function getPersonOrCorporation () {
 
             return $this->PersonOrCorporation;
+        }
+    
+        /**
+         * @return AbstractProperty
+         */
+        public function getPublisherDOI ()
+        {
+            return $this->PublisherDOI;
         }
 
         /**
