@@ -18,7 +18,7 @@
      * some, such as the Sort Date, which are needed by the Application, are
      * kept in this file, especially as they may be system generated if not
      * found in the source resource
-     * 
+     *
      * OYE!!!!! USE THE MAPPER IF POSSIBLE (AS OPPOSED TO SEARCHMAPPER OR PROPERTYMAPPER OR LABELMAPPER)
      */
     class ApplicationProfile extends BaseProfile
@@ -858,7 +858,7 @@
          */
         public function setLanguage ($value, $label = false, array $attributes = [])
         {
-            $this->_setProperty (new Schemas\DCTerms\Properties\Language ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);
+            $this->_setProperty (new Schemas\DCTerms\Properties\Language ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**
@@ -1011,7 +1011,7 @@
         {
             $this->_setProperty (new Schemas\DCTerms\Properties\Publisher ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
-    
+
         /**
          * @param            $value
          * @param bool|false $label
