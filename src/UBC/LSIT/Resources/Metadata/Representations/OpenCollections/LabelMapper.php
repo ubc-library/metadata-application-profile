@@ -76,6 +76,7 @@
             'ProjectWebsite'             => 'Project Website',
             'ProvinceOrState'            => 'Province/State',
             'Publisher'                  => 'Publisher',
+            'PublisherDOI'               => 'Publisher DOI',
             'Reference'                  => 'Reference',
             'RightsURI'                  => 'Rights URI',
             'ScholarlyLevel'             => 'Scholarly Level',

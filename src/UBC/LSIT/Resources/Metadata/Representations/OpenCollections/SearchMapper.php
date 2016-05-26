@@ -83,6 +83,7 @@
             'Provider'                      => 'provider',
             'ProvinceOrState'               => 'provinceOrState',
             'Publisher'                     => 'publisher',
+            'PublisherDOI'                  => 'publisherDOI',
             'RBSCLocation'                  => 'rbscLocation',
             'Reference'                     => 'reference',
             'Rights'                        => 'rights',

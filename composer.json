@@ -26,7 +26,8 @@
     "require-dev": {
         "php": ">=5.3.0",
         "open-library/metadata-resources": "dev-master",
-        "sabre/xml": "@stable"
+        "sabre/xml": "@stable",
+        "jms/serializer-bundle": "@stable"
     },
     "require": {
         "php": ">=5.3.0",
