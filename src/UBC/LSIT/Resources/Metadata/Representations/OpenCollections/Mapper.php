@@ -269,6 +269,10 @@
                 'field' => 'publisher',
                 'label' => 'Publisher'
             ],
+            'PublisherDOI'                     => [
+                'field' => 'publisherDOI',
+                'label' => 'Publisher DOI'
+            ],
             'RBSCLocation'                  => [
                 'field' => 'rbscLocation',
                 'label' => 'RBSC Location'
