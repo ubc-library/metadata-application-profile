@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ruleset name="Selective Standard">
+
+    <exclude-pattern phpcbf-only="true">*/thirdparty/*</exclude-pattern>
+    <exclude-pattern phpcbf-only="true">*/vendor/*</exclude-pattern>
+
+    <rule ref="Squiz">
+        <exclude phpcbf-only="true" name="Generic.WhiteSpace.ScopeIndent"/>
+    </rule>
+
+    <rule ref="Generic.Commenting.Todo.CommentFound">
+        <severity phpcbf-only="true">0</severity>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property phpcs-only="true" name="lineLimit" value="80"/>
+            <property phpcbf-only="true" name="lineLimit" value="120"/>
+        </properties>
+    </rule>
+
+</ruleset>

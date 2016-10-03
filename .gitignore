@@ -41,7 +41,6 @@ Thumbs.db
 #########################
 *.phar
 *.lock
-*.xml
 
 # Other #
 #########
@@ -70,9 +69,6 @@ atlassian-ide-plugin.xml
 ## composer
 vendor/
 vendor/*
-
-old_vendor/
-old_vendor/*
 
 .idea/
 .idea/*
