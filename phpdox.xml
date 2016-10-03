@@ -1,12 +1,17 @@
 <phpdox xmlns="http://xml.phpdox.net/config">
     <project name="open-collections/metadata-application-profile" source="src" workdir="build/phpdox">
         <collector publiconly="false">
-            <include mask="*.php" />
+            <include mask="*.php"/>
         </collector>
 
         <generator output="build">
+            <enrich base="${basedir}/build/logs">
+                <source type="phploc">
+                    <file name="phploc.xml"/>
+                </source>
+            </enrich>
             <build engine="html" enabled="true" output="api">
-                <file extension="html" />
+                <file extension="html"/>
             </build>
         </generator>
     </project>
