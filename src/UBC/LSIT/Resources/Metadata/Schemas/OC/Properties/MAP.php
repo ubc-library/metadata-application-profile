@@ -10,7 +10,7 @@
 
     use UBC\LSIT\Resources\Metadata\Schemas\OC\Property;
 
-    class CaptureMethod extends Property
+    class MAP extends Property
     {
         private $uriPart = 'captureMethod';//http://purl.org/dc/terms/#uriPart
 
