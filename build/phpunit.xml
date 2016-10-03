@@ -14,10 +14,10 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
+            <directory suffix=".php">../src</directory>
             <exclude>
-                <directory suffix=".php">vendor</directory>
-                <file>vendor/autoload.php</file>
+                <directory suffix=".php">../vendor</directory>
+                <file>../vendor/autoload.php</file>
             </exclude>
         </whitelist>
     </filter>
