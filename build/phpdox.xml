@@ -1,5 +1,5 @@
 <phpdox xmlns="http://xml.phpdox.net/config">
-    <project name="open-collections/metadata-application-profile" source="." workdir="build/phpdox">
+    <project name="open-collections/metadata-application-profile" source="src" workdir="build/phpdox">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
