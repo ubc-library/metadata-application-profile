@@ -63,6 +63,9 @@
 
         <exec executable="composer" taskname="composer">
             <arg value="update" />
+            <arg value="--no-dev" />
+            <arg value="--with-dependencies" />
+            <arg value="--optimize-autoloader" />
         </exec>
 
         <property name="prepare.done" value="true"/>
