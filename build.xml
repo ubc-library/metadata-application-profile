@@ -60,11 +60,6 @@
         <mkdir dir="${basedir}/build/logs"/>
         <mkdir dir="${basedir}/build/pdepend"/>
         <mkdir dir="${basedir}/build/phpdox"/>
-
-        <exec executable="composer" taskname="composer">
-            <arg value="update" />
-        </exec>
-
         <property name="prepare.done" value="true"/>
     </target>
 
