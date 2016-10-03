@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./../vendor/autoload.php"
+<phpunit bootstrap="../vendor/autoload.php"
          backupGlobals="false"
          backupStaticAttributes="false"
          strict="true"
@@ -7,8 +7,8 @@
 
     <testsuites>
         <testsuite name="Metadata Application Profile">
-            <directory suffix="Test.php">./../tests/unit/</directory>
-            <directory suffix="Test.php">./../tests/integration/</directory>
+            <directory suffix="Test.php">../tests/unit/</directory>
+            <directory suffix="Test.php">../tests/integration/</directory>
         </testsuite>
     </testsuites>
 
