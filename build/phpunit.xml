@@ -12,6 +12,16 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory suffix=".php">vendor</directory>
+                <file>vendor/autoload.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+
     <logging>
         <log type="coverage-html" target="coverage"/>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
@@ -19,12 +29,5 @@
         <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
 
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
-            <exclude>
-                <file>./../vendor/autoload.php</file>
-            </exclude>
-        </whitelist>
-    </filter>
+
 </phpunit>
