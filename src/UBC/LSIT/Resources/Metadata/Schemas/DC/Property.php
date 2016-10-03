@@ -5,7 +5,15 @@
     use UBC\LSIT\Resources\Metadata\Schemas\AbstractProperty;
 
     class Property extends AbstractProperty {
-
+    
+        /**
+         * Property constructor.
+         *
+         * @param        $value
+         * @param string $uri
+         * @param string $name
+         * @param string $label
+         */
         public function __construct($value, $uri = '#', $name = '#', $label = ''){
 
             $this->uri = "http://purl.org/dc/elements/1.1/{$uri}";

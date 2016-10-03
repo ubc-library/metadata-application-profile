@@ -35,7 +35,7 @@
 
             $d = [];
             $d [] = $this->getDescription ();
-            $d [] = 'TA name given to the resource.';
+            $d [] = 'The name given to the resource.';
 
             $this->setDescription (implode ('; ', $d));
 

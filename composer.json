@@ -5,12 +5,10 @@
     "authors": [
         {
             "name": "Stefan Khan-Kernahan",
-            "email": "stefan.khan-kernahan@ubc.ca",
             "role": "Architect/Backend Developer"
         },
         {
             "name": "Sean McNamara",
-            "email": "sean.mcnamara@ubc.ca",
             "role": "Backend Developer"
         }
     ],

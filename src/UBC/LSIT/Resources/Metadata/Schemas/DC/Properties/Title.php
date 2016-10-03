@@ -12,16 +12,19 @@
 
     class Title extends Property
     {
-        protected $uri = "http://purl.org/dc/elements/1.1/title";
 
-        protected $label = "Title";
-
-        protected $name = "title";//becomes dc.contributor
-
-        public function __construct($value,$label = false){
-            if(!$label){
-                $label = $this->label;
+        public function __construct($value, $label = ''){
+    
+            $this->uri = 'http://purl.org/dc/elements/1.1/title';
+            
+            $this->name = 'title';//becomes dc.contributor
+            
+            if($label !== ''){
+                $label = trim ($this->label);
+            } else {
+                $this->label = 'Title';
             }
+            
             parent::__construct($value,$this->uri,$this->name,$label);
         }
     }
