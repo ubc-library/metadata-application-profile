@@ -112,7 +112,7 @@
             if ( !empty(self::$systemFields[$lookup])) {
                 return self::$systemFields[$lookup];
             }
-            error_log ("Language not found for code [$lookup]");
+            # error_log ("Language not found for code [$lookup]");
 
             return $lookup;
         }
