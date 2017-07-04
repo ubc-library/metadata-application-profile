@@ -1,0 +1,54 @@
+<script type='application/ld+json'>
+{
+	"@context": "http://schema.org/",
+	"@type": "Thesis",
+	"author": "",
+	"contributor": "",
+	"copyrightHolder": "",
+	"dateCreated": "",
+	"datePublished": "",
+	"fileFormat": "",
+	"genre": "",
+    "identifier": [
+    	"",
+        "",
+        ""
+    ],
+	"inLanguage": {
+		"@type": "Language",
+		"name": ""
+	},
+	"isPartOf": {
+		"@type": "CreativeWork",
+		"name": ""
+	},
+	"keywords": [
+		"",
+		""
+	],
+	"license": [
+		"",
+		"",
+		""
+	],
+	"locationCreated": {
+		"@type": "Place",
+		"name": ""
+	},
+	"provider": [
+		"",
+		""
+	],
+	"publisher": "",
+	"sameAs": "",
+	"inSupportOf": "",
+	"temporalCoverage": "",
+	"text": "",
+	"version": "",
+	"alternateName": "",
+	"description": "",
+	"name": "",
+	"@id":""
+	}
+}
+</script>

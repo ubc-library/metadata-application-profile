@@ -1,0 +1,53 @@
+<script type='application/ld+json'>
+{
+	"@context": "http://schema.org/",
+	"@type": "CreativeWork",
+	"author": "",
+	"contributor": "",
+	"copyrightHolder": "",
+	"dateCreated": "",
+	"datePublished": "",
+	"fileFormat": "",
+	"genre": "",
+    "identifier": [
+    	"",
+        "",
+        ""
+    ],
+	"inLanguage": {
+		"@type": "Language",
+		"name": ""
+	},
+	"isPartOf": {
+		"@type": "CreativeWork",
+		"name": ""
+	},
+	"keywords": [
+		"",
+		""
+	],
+	"license": [
+		"",
+		"",
+		""
+	],
+	"locationCreated": {
+		"@type": "Place",
+		"name": ""
+	},
+	"provider": [
+		"",
+		""
+	],
+	"publisher": "",
+	"sameAs": "",
+	"temporalCoverage": "",
+	"text": "",
+	"version": "",
+	"alternateName": "",
+	"description": "",
+	"name": "",
+	"@id":""
+	}
+}
+</script>
