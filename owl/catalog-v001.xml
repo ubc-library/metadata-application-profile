@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/ns/oa#" uri="https://www.w3.org/ns/oa.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v01(AS-IS).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v01(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v05(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v06(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v07(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v08(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v09(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v10(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v11(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v12(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v12b(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms" uri="oc_data_model_v13(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms/" uri="oc_data_model_v02(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://open.library.ubc.ca/terms/" uri="oc_data_model_v04(TO-BE).owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="http://www.europeana.eu/schemas/edm/" uri="edm.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="http://www.semanticweb.org/camigo/ontologies/2017/6/untitled-ontology-14" uri="teste.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/camigo/ontologies/2017/6/untitled-ontology-15" uri="test22.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/camigo/ontologies/2017/6/untitled-ontology-15" uri="testpcdm.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/camigo/ontologies/2017/6/untitled-ontology-15" uri="textpcdm.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="http://www.semanticweb.org/camigo/ontologies/2017/6/untitled-ontology-59" uri="masterimport.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/rdickson/ontologies/2016/7/opencollections.owl" uri="oc_ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/rdickson/ontologies/2016/7/opencollections.owl" uri="oc_ontology.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="duplicate:http://www.semanticweb.org/rdickson/ontologies/2016/7/opencollections.owl" uri="opencollections.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1501003560885" name="https://open.library.ubc.ca/terms" uri="octest.owl"/>
+    </group>
+</catalog>

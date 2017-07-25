@@ -1,0 +1,1692 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://open.library.ubc.ca/terms#"
+     xml:base="http://open.library.ubc.ca/terms"
+     xmlns:ore="http://www.openarchives.org/ore/terms/"
+     xmlns:fi="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dpla="http://dp.la/info/developers/map/"
+     xmlns:edm="http://www.europeana.eu/schemas/edm/"
+     xmlns:oa="http://www.w3.org/ns/oa#"
+     xmlns:oc="http://open.library.ubc.ca/terms#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:vivo="http://vivoweb.org/ontology/core#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://open.library.ubc.ca/terms#">
+        <owl:versionInfo>2017/07/05</owl:versionInfo>
+        <rdfs:label xml:lang="en">Open Collections Metadata Application Profile (OC MAP)</rdfs:label>
+        <dc:creator xml:lang="en">University of British Columbia Library</dc:creator>
+        <skos:definition xml:lang="en">An ontology that describes the resources in Open Collections, and their digital surrogates.</skos:definition>
+        <rdfs:seeAlso rdf:resource="https://github.com/ubc-library/metadata-application-profile/wiki"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#domain -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#domain"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#range -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#range"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#subPropertyOf -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#annotationContainer -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#annotationContainer">
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#AnnotationContainer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Annotations</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components. This property represents a container for annotations that may exists upon an item. Obligation is 0 - n, and does not include the Full Text, which is represented in oc:annotation.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#degreeCampus -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#degreeCampus">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/spatial"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#ThesisDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Campus</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Identifies the name of the campus from which the graduate completed their degree.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#degreeGrantor -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#degreeGrantor">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/contributor"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#ThesisDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Degree Grantor</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the institution where thesis was granted.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#edition -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#edition">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/hasVersion"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Edition</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Identifies the book edition to which a resource belongs.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#hasGrantFunder -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#hasGrantFunder">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/contributor"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Grant Funding Agency</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Identifies the agency responsible for issuing a grant to one or more of the creators of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#rightsCopyright -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#rightsCopyright">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/rightsHolder"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Copyright Holder</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Refers to the publisher or author who holds the copyright.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#rightsURI -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#rightsURI">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/license"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Rights URI</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the Creative Commons license url.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#scholarLevel -->
+
+    <owl:ObjectProperty rdf:about="http://open.library.ubc.ca/terms#scholarLevel">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/creator"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Scholarly Level</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Identifies the scholarly level of the author(s)/creator(s).</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/contributor">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasMet"/>
+        <rdfs:comment xml:lang="en">Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Contributor</rdfs:label>
+        <skos:definition xml:lang="en">An entity responsible for making contributions to the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/coverage -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/coverage">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasMet"/>
+        <rdfs:comment xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Coverage</rdfs:label>
+        <skos:definition xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/creator">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasMet"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#DataDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/format -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/format">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasType"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">File Format (edm:WebResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Elements Property; The file format, physical medium, or dimensions of the resource.; Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/language -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/language">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasType"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <skos:definition xml:lang="en">Language(s) of content. Value is dcterms:language.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/publisher">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasMet"/>
+        <rdfs:comment xml:lang="en">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <skos:definition xml:lang="en">An entity responsible for making the resource available.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/relation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/relation">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <rdfs:comment xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <skos:definition xml:lang="en">Information about rights held in and over the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/source">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/isDerivativeOf"/>
+        <rdfs:comment xml:lang="en">The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <skos:definition xml:lang="en">A related resource from which the described resource is derived.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/subject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/subject">
+        <rdfs:comment xml:lang="en">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <skos:definition xml:lang="en">The topic of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/type -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/elements/1.1/type">
+        <rdfs:comment xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <skos:definition xml:lang="en">The nature or genre of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/contributor">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/contributor"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#MediaDescription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Contributor (dpla:SourceResource)</rdfs:label>
+        <rdfs:label xml:lang="en">Credits (oc:MediaDescription)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; An entity responsible for making contributions to the resource.; Examples of a Contributor include a person, an organization, or a service.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/coverage -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/coverage">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/coverage"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#GeographicDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.; Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/creator">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/creator"/>
+        <owl:inverseOf rdf:resource="http://purl.org/dc/terms/isReferencedBy"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Creator (dpla:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; An entity primarily responsible for making the resource.; Examples of a Contributor include a person, an organization, or a service.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/extent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/extent">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/format"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Extent</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; The size or duration of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasPart">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+        <owl:inverseOf rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Has Part</rdfs:label>
+        <skos:definition xml:lang="en">A related resource that is included either physically or logically in the described resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasVersion">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Has Version</rdfs:label>
+        <skos:definition xml:lang="en">A related resource that is a version, edition, or adaptation of the described resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isPartOf">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#PublicationDescription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Collection (dpla:SourceResource)</rdfs:label>
+        <rdfs:label xml:lang="en">Series (oc:PublicationDescription)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A related resource in which the described resource is physically or logically included.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isReferencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isReferencedBy">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Catalogue Record</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A related resource that references, cites, or otherwise points to the described resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/language -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/language">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/language"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A language of the resource.; Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/license">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/rights"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">License</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A legal document giving official permission to do something with the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/provenance -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/provenance">
+        <rdfs:comment xml:lang="en">The statement may include a description of any changes successive custodians made to the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Provenance</rdfs:label>
+        <skos:definition xml:lang="en">A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/publisher">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/publisher"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:comment xml:lang="en">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <skos:definition xml:lang="en">An entity responsible for making the resource available.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/relation -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/relation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/relation"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Project Website</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A related resource.; Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/rights">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; Information about rights held in and over the resource.; Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/rightsHolder -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/rightsHolder">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Rights Holder</rdfs:label>
+        <skos:definition xml:lang="en">A person or organization owning or managing rights over the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/source">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A related resource from which the described resource is derived.; The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/spatial -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/spatial">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/coverage"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#GeographicDescription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Geographic Location (dpla:SourceResource)</rdfs:label>
+        <rdfs:label xml:lang="en">Province/State (oc:GeographicDescription)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; Spatial characteristics of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/subject">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#DataDescription"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#PublicationDescription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label>Category (oc:DataDescription)</rdfs:label>
+        <rdfs:label xml:lang="en">Person or Corporation (oc:PublicationDescription)</rdfs:label>
+        <rdfs:label xml:lang="en">Subject (dpla:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; The topic of the resource.; Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/temporal -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/temporal">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/coverage"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Time</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; Temporal characteristics of the resource.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/type -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/type">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/type"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; The nature or genre of the resource.; Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#dateIssued -->
+
+    <owl:ObjectProperty rdf:about="http://vivoweb.org/ontology/core#dateIssued">
+        <rdfs:subPropertyOf rdf:resource="http://vivoweb.org/ontology/core#dateTimeValue"/>
+        <rdfs:domain rdf:resource="http://vivoweb.org/ontology/core#DateTimeValue"/>
+        <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#DateTimeValue"/>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">Graduation Date</rdfs:label>
+        <skos:definition xml:lang="en">VIVO-ISF Ontology V1.6 Property; Date Optional Time Value, DateTime+Timezone Preferred</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#dateTimeValue -->
+
+    <owl:ObjectProperty rdf:about="http://vivoweb.org/ontology/core#dateTimeValue">
+        <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#DateTimeValue"/>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">Date/time value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#departmentOrSchool -->
+
+    <owl:ObjectProperty rdf:about="http://vivoweb.org/ontology/core#departmentOrSchool">
+        <rdfs:domain rdf:resource="http://vivoweb.org/ontology/core#EducationalProcess"/>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">Affiliation</rdfs:label>
+        <skos:definition xml:lang="en">VIVO-ISF Ontology V1.6 Property; The department or school name within institution; Not intended to be an institution name.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/aggregatedCHO -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/aggregatedCHO">
+        <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+        <rdfs:range rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Digital Resource Original Record</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; The identifier of the source object, e.g. the Mona Lisa itself. This could be a full linked open date URI or an internal identifier</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/currentLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/currentLocation">
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:range rdf:resource="http://www.europeana.eu/schemas/edm/Place"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">RBSC Location</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; The geographic location whose boundaries presently include the CHO. If the name of a repository, building site, or other entity is used, then it should include an indication of its geographic location.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/dataProvider -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/dataProvider">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/provenance"/>
+        <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Aggregated Source Repository</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; The name or identifier of the organization who contributes data indirectly to an aggregation service (e.g. Europeana).</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasMet -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/hasMet">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/relation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Has Met</rdfs:label>
+        <skos:definition xml:lang="en">edm:hasMet relates a resource with the objects or phenomena that have happened to or have happened together with the resource under consideration. We can abstractly think of history and the present as a series of “meetings” between people and other things in space-time. Therefore we name this relationship as the things the object “has met” in the course of its existence. These meetings are events in the proper sense, in which other people and things participate in any role.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/hasType">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/isRelatedTo"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Genre</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; This property relates a resource with the concepts it belongs to in a suitable type system such as MIME or any thesaurus that captures categories of objects in a given field. It does NOT capture aboutness.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/hasView -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/hasView">
+        <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
+        <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+        <rdfs:range rdf:resource="http://www.europeana.eu/schemas/edm/WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Has View</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; This property relates a ORE aggregation about a CHO with a web resource providing a view of that CHO. Examples of view are: a thumbnail, a textual abstract and a table of contents.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isDerivativeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/isDerivativeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/isSimilarTo"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:label xml:lang="en">Translation</rdfs:label>
+        <skos:definition rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; This property captures a narrower notion of derivation than edm:isSimilarTo, in the sense that it relates a resource to another one, obtained by reworking, reducing, expanding, parts or the whole contents of the former, and possibly adding some minor parts. Versions have an even narrower meaning, in that it requires common identity between the related resources. Translations, summaries, abstractions etc. do not qualify as versions, but do qualify as derivatives</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isRelatedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/isRelatedTo">
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:isDefinedBy xml:lang="en">Is Related To</rdfs:isDefinedBy>
+        <skos:definition xml:lang="en">edm:isRelatedTo is the most general contextual property in EDM. Contextual
+properties have typically to do either with the things that have happened to or together with the object under consideration, or what the object refers to by its shape, form or features in a figural or encoded form. For sake of simplicity, we include in the contextual relationships also the scholarly classification, which may have either to do with the role and cultural connections of the object in the past, or its kind of structure, substance or contents as it can be verified at present.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isShownAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/isShownAt">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/provenance"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasView"/>
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Is Shown At</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; An unambiguous URL reference to the digital object on the provider’s website in its full information context.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/isSimilarTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/isSimilarTo">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/relation"/>
+        <rdfs:label xml:lang="en">Is Similar To</rdfs:label>
+        <skos:definition rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <skos:definition xml:lang="en">The most generic derivation property, covering also the case of questionable derivation. Is Similar To asserts that parts of the contents of one resource exhibit common features with respect to ideas, shapes, structures, colors, words, plots, topics with the contents of the related resource. Those common features may be attributed to a common origin or influence (in particular for derivation), but also to more generic cultural or psychological factors.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/provider -->
+
+    <owl:ObjectProperty rdf:about="http://www.europeana.eu/schemas/edm/provider">
+        <rdfs:subPropertyOf rdf:resource="http://www.europeana.eu/schemas/edm/hasMet"/>
+        <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Provider</rdfs:label>
+        <skos:definition xml:lang="en">A Europeana Data Model Property; The name or identifier of the organization who delivers data directly to an aggregation service (e.g. Europeana)</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/aggregates -->
+
+    <owl:ObjectProperty rdf:about="http://www.openarchives.org/ore/terms/aggregates">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+        <rdfs:label xml:lang="en">Aggregates</rdfs:label>
+        <skos:definition xml:lang="en">Aggregations, by definition, aggregate resources. The ore:aggregates relationship expresses that the object resource is a member of the set of Aggregated Resources of the subject (the Aggregation). This relationship between the Aggregation and its Aggregated Resources is thus more specific than a simple part/whole relationship, as expressed by dcterms:hasPart for example.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#captureMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#captureMethod">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Method of Capture</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the method used to capture the specimens.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#collectorNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#collectorNumber">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#DataDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Collector Number</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the number assigned to the collector of the specimens.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#cover -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#cover">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Cover</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the cover where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#current -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#current">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Current</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the current where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#degreeDiscipline -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#degreeDiscipline">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#ThesisDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Program</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the program for which the degree was granted.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#descriptionEpisode -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#descriptionEpisode">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#MediaDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Episode</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the year, season and episode information for a video resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#identifierAIP -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#identifierAIP">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#DigitalPreservation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">AIP UUID</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Refers to the Archival Information Package identifier generated by Archivematica. This serves as a link between CONTENTdm and Archivematica.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#identifierCitation -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#identifierCitation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/bibliographicCitation"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Citation</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates a bibliographic reference for the resource if it has been previously published.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#identifierFile -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#identifierFile">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#DigitalPreservation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">File UUID</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Refers to the individual files within an AIP and generated by Archivematica. This serves as a link between CONTENTdm and Archivematica.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#identifierURI -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#identifierURI">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">URI</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the handle for item record.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#map -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#map">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#DataDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Map</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the map showing where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#originalPreserved -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#originalPreserved">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Original Preserved</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates whether or not the original specimens were preserved.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#peerReviewStatus -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#peerReviewStatus">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Peer Review Status</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Identifies whether or not the resource is peer-reviewed. Applies to published resources only.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#publisherDOI -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#publisherDOI">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Publisher DOI</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; If the item was issued a DOI by it&apos;s Publisher, that DOI is displayed here</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#reference -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#reference">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#ArtifactDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Reference</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Records the reference numbers from various indices.; Records the reference numbers from various indices.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#shore -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#shore">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Shore</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the features of the shore where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#streamWidth -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#streamWidth">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Stream Width</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the width of the stream where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#tide -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#tide">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Tide</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the state of the tide where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#vegetation -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#vegetation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Vegetation</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the vegetation where the specimens where collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#water -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#water">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Water</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Describes the quality of the water where the specimens where collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#watershed -->
+
+    <owl:DatatypeProperty rdf:about="http://open.library.ubc.ca/terms#watershed">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#FieldNotesDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Watershed</rdfs:label>
+        <skos:definition xml:lang="en">UBC Open Collections Metadata Components; Local Field; Indicates the name of the watershed where the specimens were collected.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/date">
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:comment xml:lang="en">Date may be used to express temporal information at any level of granularity. Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <skos:definition xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/description">
+        <rdfs:comment xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <skos:definition xml:lang="en">An account of the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/identifier">
+        <rdfs:comment xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <skos:definition xml:lang="en">An unambiguous reference to the resource within a given context.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/title">
+        <rdfs:comment xml:lang="en">Typically, a Title will be a name by which the resource is formally known.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+        <skos:definition xml:lang="en">A name given to the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/alternative -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/alternative">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/title"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Alternate Title</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; An alternative name for the resource.; Note - the distinction between titles and alternative titles is resource-specific.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment xml:lang="en">Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bibliographic Citation</rdfs:label>
+        <skos:definition xml:lang="en">A bibliographic reference for the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/created">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Date Created (oc:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; Date of creation of the resource. (oc:SourceResource)</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/date">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+        <rdfs:domain rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Sort Date</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Elements Property; A point or period of time associated with an event in the lifecycle of the resource.; Date may be used to express temporal information at any level of granularity. Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/description"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://purl.org/dc/dcmitype/Collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Collection Description (dcmitype:Collection)</rdfs:label>
+        <rdfs:label xml:lang="en">Description (dpla:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; An account of the resource.; Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/identifier"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#DataDescription"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Catalogue Number (oc:DataDescription)</rdfs:label>
+        <rdfs:label xml:lang="en">Identifier (dpla:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; An unambiguous reference to the resource within a given context.; Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/issued">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://open.library.ubc.ca/terms#SourceResource"/>
+                    <rdf:Description rdf:about="http://www.europeana.eu/schemas/edm/WebResource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Date Available (edm:WebResource)</rdfs:label>
+        <rdfs:label xml:lang="en">Date Issued (oc:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; Date of formal issuance (e.g., publication) of the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/tableOfContents -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/tableOfContents">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
+        <rdfs:domain rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Contents</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; A list of subunits of the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/title"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://dp.la/info/developers/map/SourceResource"/>
+                    <rdf:Description rdf:about="http://purl.org/dc/dcmitype/Collection"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+        <rdfs:label xml:lang="en">Collection Title (dcmitype:Collection)</rdfs:label>
+        <rdfs:label xml:lang="en">Title (dpla:SourceResource)</rdfs:label>
+        <skos:definition xml:lang="en">A Dublin Core Terms Property; The name given to the resource.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#bathymetry -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#bathymetry">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#DepthBehav"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Depth of Water</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); Bathymetry is numeric depth information about the ranges in which an aquatic species is found.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#bottomType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#bottomType">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#FishingGround"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Bottom</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); &quot;Marine habitat: type of bottom substratum in which the fishery resource is distributed.&quot; (FIRMS Inventory Guidelines 2011).</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#depthZone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#depthZone">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#FishingGround"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Depth of Capture</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); &quot;Marine habitat/Fishing ground: Bathymetric depth range in which a fishery resource is distributed or in which a fishery is conducted&quot; (FIRMS Inventory Guidelines 2011).</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#horizontalDist -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#horizontalDist">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#HabitatBio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Distance Offshore</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); /&quot;Marine habitat: inshore to offshore range in which the fishery resource is distributed (e.g. littoral, neritic, oceanic ...)./&quot; (FIRMS Inventory Guidelines 2011)</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#waterAreaOverview -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#waterAreaOverview">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#AqRes"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Locality</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); &quot;Description of the water area in which the aquatic resource is located, including environmental characteristics, jurisdictional limits, ...&quot; (FIGIS-FIRMS 2002 workshop). Water Area Overview might contain a reference list of areas in which a species or aquatic resource is found or employed.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#waterCondition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#waterCondition">
+        <rdfs:domain rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#HabitatBio"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">Temperature</rdfs:label>
+        <skos:definition xml:lang="en">Fisheries Metadata Element Set (FiMES); WaterCondition is information on species affinity related to water conditions or characteristics , e.g. oxygen , temperature etc.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:label xml:lang="en">Latitude</rdfs:label>
+        <skos:definition xml:lang="en">Basic Geo (WGS84 Lat/Long) Property; Latitude (φ) - Specified in Decimal Degrees</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <rdfs:domain rdf:resource="http://www.europeana.eu/schemas/edm/Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:label xml:lang="en">Longitude</rdfs:label>
+        <skos:definition xml:lang="en">Basic Geo (WGS84 Lat/Long) Property; Longitude (λ) - Specified in Decimal Degrees</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#note">
+        <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">Note</rdfs:label>
+        <skos:definition xml:lang="en">Simple Knowledge Organisation System; Notes are used to provide information relating to SKOS concepts. There is no restriction on the nature of this information, e.g., it could be plain text, hypertext, or an image; it could be a definition, information about the scope of a concept, editorial information, or any other type of information.</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dp.la/info/developers/map/SourceResource -->
+
+    <owl:Class rdf:about="http://dp.la/info/developers/map/SourceResource">
+        <rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/ProvidedCHO"/>
+        <rdfs:isDefinedBy rdf:resource="http://dp.la/info/developers/map/"/>
+        <rdfs:label xml:lang="en">Source Resource</rdfs:label>
+        <skos:definition xml:lang="en">This class is a subclass of &quot;edm:ProvidedCHO,&quot; which comprises the described resources (in EDM called &quot;cultural heritage objects&quot;) about which DPLA collects descriptions. It is here that attributes of the described resources are located, not the digital representations of them.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#AnnotationContainer -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#AnnotationContainer">
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">AnnotationContainer</rdfs:label>
+        <skos:definition xml:lang="en">This locally-created container class brings together multiple annotations that apply to an item. It also provides access to the full text of an item.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#ArtifactDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#ArtifactDescription">
+        <rdfs:subClassOf rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">ArtifactDescription</rdfs:label>
+        <skos:definition xml:lang="en">Describes three-dimensional artifacts, such as Epigraphic Squeezes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#DataDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#DataDescription">
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">DataDescription</rdfs:label>
+        <skos:definition xml:lang="en">Used with oc:FieldNotesDescription. Describes data contained in field notes. E.g.: Connects a Fisheries Field Record with a corresponding fish specimen and its collector.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#DigitalPreservation -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#DigitalPreservation">
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">DigitalPreservation</rdfs:label>
+        <skos:definition xml:lang="en">Connects a digital surrogate (oc:WebResource) with a corresponding Archival Information Package (AIP). Acts as a link between ContentDM and Archivematica.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#FieldNotesDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#FieldNotesDescription">
+        <rdfs:subClassOf rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">FieldNotesDescription</rdfs:label>
+        <skos:definition xml:lang="en">Describes field notes, such as Fisheries Field Records.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#GeographicDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#GeographicDescription">
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">GeographicDescription</rdfs:label>
+        <skos:definition xml:lang="en">Used with oc:FieldNotesDescription. Indicates the location where field notes data were collected. E.g.: Indicates the location where a corresponding fish specimen was collected.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#MediaDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#MediaDescription">
+        <rdfs:subClassOf rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">MediaDescription</rdfs:label>
+        <skos:definition xml:lang="en">Describes media, including television episodes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#PublicationDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#PublicationDescription">
+        <rdfs:subClassOf rdf:resource="http://open.library.ubc.ca/terms#SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">PublicationDescription</rdfs:label>
+        <skos:definition xml:lang="en">Describes publications, including Theses &amp; Dissertations.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#SourceResource -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#SourceResource">
+        <rdfs:subClassOf rdf:resource="http://dp.la/info/developers/map/SourceResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Source Resource</rdfs:label>
+        <skos:definition xml:lang="en">Represents an original object (e.g., a photographic print). Locally-defined subclass of dpla: SourceResource and edm:ProvidedCHO.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#ThesisDescription -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#ThesisDescription">
+        <rdfs:subClassOf rdf:resource="http://open.library.ubc.ca/terms#PublicationDescription"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Thesis Description</rdfs:label>
+        <skos:definition xml:lang="en">Describes theses and dissertations. Subclass of oc:PublicationDescription.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://open.library.ubc.ca/terms#WebResource -->
+
+    <owl:Class rdf:about="http://open.library.ubc.ca/terms#WebResource">
+        <rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/WebResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://open.library.ubc.ca/terms#"/>
+        <rdfs:label xml:lang="en">Web Resource</rdfs:label>
+        <skos:definition xml:lang="en">Represents an object’s digital surrogate (e.g., a scanned image). Locally-defined subclass of dpla:WebResource and edm:WebResource.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/dcmitype/Collection -->
+
+    <owl:Class rdf:about="http://purl.org/dc/dcmitype/Collection">
+        <rdfs:comment xml:lang="en">A collection is described as a group; its parts may also be separately described.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/dcmitype/"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <skos:definition xml:lang="en">An aggregation of resources.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#AcademicDegree -->
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#AcademicDegree">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">This list may have multiple abbreviations for some degrees.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">Academic Degree</rdfs:label>
+        <skos:definition xml:lang="en">An academic degree at any level, both as reported by individuals for employment and as offered by academic degree programs.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#DateTimeValue -->
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#DateTimeValue">
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">DateTimeValue</rdfs:label>
+        <skos:definition xml:lang="en">A date and/or time</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#EducationalProcess -->
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#EducationalProcess">
+        <rdfs:comment xml:lang="en">Currently any abstract name is given to individuals of this class. This could change in the future.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This connects person to their academic degree through this educational training, but can also be used when the training does not result in a degree.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">EducationalProcess</rdfs:label>
+        <skos:definition xml:lang="en">Represents educational training that has been received.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://vivoweb.org/ontology/core#ThesisDegree -->
+
+    <owl:Class rdf:about="http://vivoweb.org/ontology/core#ThesisDegree">
+        <rdfs:subClassOf rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+        <rdfs:comment xml:lang="en">Different from general academic degree, thesis degree is achieved through one&apos;s completed thesis. Thesis is a document submitted in support of candidature for a degree or professional qualification presenting the author&apos;s research and findings(http://en.wikipedia.org/wiki/Thesis_or_dissertation).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://vivoweb.org/ontology/core#"/>
+        <rdfs:label xml:lang="en">ThesisDegree</rdfs:label>
+        <skos:definition xml:lang="en">The academic degree of a Thesis.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/InformationResource -->
+
+    <owl:Class rdf:about="http://www.europeana.eu/schemas/edm/InformationResource">
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Information Resource</rdfs:label>
+        <skos:definition xml:lang="en">An information resource is a resource whose essential characteristics can be conveyed in a single message. It can be associated with a URI, it can have a representation, for example: a text is an InformationResource.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/NonInformationResource -->
+
+    <owl:Class rdf:about="http://www.europeana.eu/schemas/edm/NonInformationResource">
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Non-Information Resource</rdfs:label>
+        <skos:definition xml:lang="en">All resources that are not information resources.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/Place -->
+
+    <owl:Class rdf:about="http://www.europeana.eu/schemas/edm/Place">
+        <rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/NonInformationResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+        <skos:definition xml:lang="en">An &quot;extent in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter&quot; (CIDOC CRM)</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/ProvidedCHO -->
+
+    <owl:Class rdf:about="http://www.europeana.eu/schemas/edm/ProvidedCHO">
+        <rdfs:comment xml:lang="en">This class has been mostly motivated by the need to assign a type to the “central node” in the EDM pattern, during the ingestion process, related to the XML expression of EDM at that stage. It was especially intended to fit the cases where edm:PhysicalThing  cannot be used as the type of the resource standing for the real-world object (independently of any specific data contributor perspective).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Provided CHO</rdfs:label>
+        <skos:definition xml:lang="en">This class comprises the Cultural Heritage objects that Europeana collects descriptions about.</skos:definition>
+        <skos:scopeNote xml:lang="en">Rationale: This class is the range of edm:aggregatedCHO. A resource of type ProvidedCHO can be the subject of statements using edm:isRelatedTo or any more specific property.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.europeana.eu/schemas/edm/WebResource -->
+
+    <owl:Class rdf:about="http://www.europeana.eu/schemas/edm/WebResource">
+        <rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/InformationResource"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.europeana.eu/schemas/edm/"/>
+        <rdfs:label xml:lang="en">Web Resource</rdfs:label>
+        <skos:definition xml:lang="en">Information Resources that have at least one Web Representation and at least
+a URI.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#AqRes -->
+
+    <owl:Class rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#AqRes">
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">AqRes</rdfs:label>
+        <skos:definition xml:lang="en">According to the FAO Fisheries Glossary, &quot;Biotic element of the aquatic ecosystem, including genetic resources, organisms or parts thereof, populations, etc. with actual or potential use or value (sensu lato) for humanity. Fishery resources are those aquatic resources of value to fisheries&quot;.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#DepthBehav -->
+
+    <owl:Class rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#DepthBehav">
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">DepthBehav</rdfs:label>
+        <skos:definition xml:lang="en">DepthBehav is a container for information on species behaviour related to water depth. &apos;Bathymetry&apos; element is used in the case that the depth ranges in which an aquatic species is found are available.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#FishingGround -->
+
+    <owl:Class rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#FishingGround">
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">FishingGround</rdfs:label>
+        <skos:definition xml:lang="en">A container for information about the fishing grounds in which a fishery operates.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#HabitatBio -->
+
+    <owl:Class rdf:about="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#HabitatBio">
+        <rdfs:isDefinedBy rdf:resource="http://www.fao.org/fi/figis/devcon/fimes/doc/index.html#"/>
+        <rdfs:label xml:lang="en">HabitatBio</rdfs:label>
+        <skos:definition xml:lang="en">Habitat and Biology is a container for information on the biology and ecology of a species in the area of the aquatic resource.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openarchives.org/ore/terms/Aggregation -->
+
+    <owl:Class rdf:about="http://www.openarchives.org/ore/terms/Aggregation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Collection"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.openarchives.org/ore/terms/"/>
+        <rdfs:label xml:lang="en">Aggregation</rdfs:label>
+        <skos:definition xml:lang="en">Connects an original object with its digital surrogate.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.europeana.eu/schemas/edm/NonInformationResource"/>
+        <rdfs:comment xml:lang="en">The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+        <skos:definition xml:lang="en">An idea or notion; a unit of thought.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/oa#Annotation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/oa#Annotation">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/oa#"/>
+        <rdfs:label xml:lang="en">Annotation</rdfs:label>
+        <skos:definition xml:lang="en">The class for Web Annotations.</skos:definition>
+    </owl:Class>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+        <skos:definition xml:lang="en">An entity primarily responsible for making the resource.</skos:definition>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:comment xml:lang="en">Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.</rdfs:comment>
+        <rdfs:label>Collected By (oc:DataDescription)</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
