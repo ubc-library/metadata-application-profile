@@ -257,6 +257,10 @@
                 'field' => 'projectWebsite',
                 'label' => 'Project Website'
             ],
+            'Provenance'                      => [
+                'field' => 'provenance',
+                'label' => 'Provenance'
+            ],
             'Provider'                      => [
                 'field' => 'provider',
                 'label' => 'Provider'

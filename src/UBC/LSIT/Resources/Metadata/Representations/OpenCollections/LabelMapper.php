@@ -74,6 +74,7 @@
             'PersonOrCorporation'        => 'Person/Corporation',
             'Program'                    => 'Program',
             'ProjectWebsite'             => 'Project Website',
+            'Provenance'                 => 'Provenance',
             'ProvinceOrState'            => 'Province/State',
             'Publisher'                  => 'Publisher',
             'PublisherDOI'               => 'Publisher DOI',

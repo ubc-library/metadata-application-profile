@@ -214,9 +214,12 @@
             $data = [];
 
             foreach ($this as $k => $v) {
+                file_put_contents(__DIR__.'/../../../../../../../test.log', $k.PHP_EOL, FILE_APPEND);
                 if (isset($v) && !is_null ($v)) {
                     $cmd = "get{$k}";
+                    file_put_contents(__DIR__.'/../../../../../../../test.log', 'get field that is set'.$k.PHP_EOL, FILE_APPEND);
                     if (method_exists ($this, $cmd)) {
+                        file_put_contents(__DIR__.'/../../../../../../../test.log', 'method exists for get'.$k.PHP_EOL,FILE_APPEND);
                         $v = $this->{$cmd}();
                         if (is_array ($v)) {
                             foreach ($v as $_v) {
@@ -980,6 +983,16 @@
         public function setProjectWebsite ($value, $label = false, array $attributes = [])
         {
             $this->_setProperty (new Schemas\DCTerms\Properties\Relation ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
+        public function setProvenance ($value, $label = false, array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Provenance ($value, $label), str_replace ('set', '', __FUNCTION__), $attributes, true);
         }
 
         /**

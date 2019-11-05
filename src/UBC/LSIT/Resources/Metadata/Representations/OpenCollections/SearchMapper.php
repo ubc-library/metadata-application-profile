@@ -80,6 +80,7 @@
             'PersonOrCorporation'           => 'personOrCorporation',
             'Program'                       => 'program',
             'ProjectWebsite'                => 'projectWebsite',
+            'Provenance'                    => 'provenance',
             'Provider'                      => 'provider',
             'ProvinceOrState'               => 'provinceOrState',
             'Publisher'                     => 'publisher',
