@@ -81,6 +81,11 @@
         /**
          * @var AbstractProperty
          */
+        protected $Provenance;
+
+        /**
+         * @var AbstractProperty
+         */
         protected $Publisher;
 
         /**
@@ -184,6 +189,14 @@
         public function getLanguage ()
         {
             return $this->Language;
+        }
+
+        /**
+         * @return AbstractProperty
+         */
+        public function getProvenance ()
+        {
+            return $this->Provenance;
         }
 
         /**
