@@ -53,6 +53,7 @@
         use OC\WebResource;
         use ORE\Aggregation;
         use SKOS\Concept;
+        use VIVO\AdvisingRelationship;
         use VIVO\DateTimeValue;
         use VIVO\ThesisDegree;
         use VIVO\EducationalProcess;

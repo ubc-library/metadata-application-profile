@@ -321,6 +321,10 @@
                 'field' => 'subject',
                 'label' => 'Subject'
             ],
+            'Supervisor'                    => [
+                'field' => 'supervisor',
+                'label' => 'Supervisor'
+            ],
             'Temperature'                   => [
                 'field' => 'temperature',
                 'label' => 'Temperature'
