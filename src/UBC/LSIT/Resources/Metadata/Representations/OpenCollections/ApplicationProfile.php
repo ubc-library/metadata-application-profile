@@ -1138,6 +1138,16 @@
          * @param bool|false $label
          * @param array      $attributes
          */
+        public function setSupervisor ($value, $label = 'Supervisor', array $attributes = [])
+        {
+            $this->_setProperty (new Schemas\DCTerms\Properties\Contributor ($value, 'Supervisor'), str_replace ('set', '', __FUNCTION__), $attributes, true);;
+        }
+
+        /**
+         * @param            $value
+         * @param bool|false $label
+         * @param array      $attributes
+         */
         public function setTemperature ($value, $label = false, array $attributes = [])
         {
             $this->_setProperty (new Schemas\FI\Properties\WaterCondition($value, $label), str_replace ('set', '', __FUNCTION__), $attributes);

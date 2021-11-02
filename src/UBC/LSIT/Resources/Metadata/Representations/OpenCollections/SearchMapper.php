@@ -96,6 +96,7 @@
             'Source'                        => 'source',
             'StreamWidth'                   => 'streamWidth',
             'Subject'                       => 'subject',
+            'Supervisor'                    => 'supervisor',
             'Temperature'                   => 'temperature',
             'Tide'                          => 'tide',
             'Time'                          => 'time',

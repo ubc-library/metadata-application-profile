@@ -86,6 +86,7 @@
             'Source'                     => 'Source',
             'StreamWidth'                => 'Stream Width',
             'Subject'                    => 'Subject',
+            'Supervisor'                 => 'Supervisor',
             'Temperature'                => 'Temperature',
             'Tide'                       => 'Tide',
             'Title'                      => 'Title',
